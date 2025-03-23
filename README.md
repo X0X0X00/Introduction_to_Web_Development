@@ -1,4 +1,4 @@
-# CSC 170 Lab and Project
+# CSC 170
 
 This course is an introduction to the World Wide Web and related technologies. Topics include
 HTML5 and CSS, Web page design. Emphasis is placed on fundamentals, industry standards
