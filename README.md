@@ -1,2 +1,1 @@
-# CSC170
-Lab and Project
+CSC 170 Lab and Project
