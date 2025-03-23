@@ -1,2 +1,2 @@
-# CSC170 Introduction to Web Development
+# CSC170
 Lab and Project
