@@ -1,0 +1,279 @@
+--> Assignment 1: Basic DOM Manipulation
+
+Objective: Using jQuery to select elements and change content or attributes.
+
+Instructions:
+
+    Create an HTML page with:
+        An <h1> title.
+        A paragraph with the ID 'description'.
+        An <img> tag with the ID 'image' and a placeholder image of your choice as its 'src' attribute.
+        A button with the ID 'changeContent'.
+
+You need to complete the following code:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Change title text on page load
+            $("h1").text("Welcome to jQuery Practice!");
+
+            // Change paragraph text and image source on button click
+            $("#changeContent").click(function() {
+                $("#description").text("This content has been updated using jQuery.");
+                $("#image").attr("src", "____________"); // set the image file to another image of your choice
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Original Title</h1>
+    <p id="____________">Original description text.</p>
+    <img id="____________" src="____________" alt="Placeholder Image">
+    <button id="____________">Change Content</button>
+</body>
+</html>
+
+--> Assignment 2: Interactive To-Do List
+
+Objective: Practice event handling and dynamically adding/removing elements.
+
+Instructions:
+
+    Create an HTML page with:
+        An <input> field with the ID taskInput.
+        A button with the ID addTask.
+        An empty unordered list with the ID taskList.
+
+You need to complete the following code:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Add task to list
+            $("#addTask").click(function() {
+                let task = $("#taskInput").val();
+                if (task) {
+                    let listItem = $("<li>").text(task);
+                    let deleteButton = $("<button>").text("Delete").click(function() {
+                        $(this).parent().remove(); // Remove the task on delete button click
+                    });
+                    listItem.append(deleteButton);
+                    $("#taskList").append(listItem);
+                    $("#taskInput").val(""); // Clear input field
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="text" id="____________" placeholder="Enter a new task">
+    <button id="____________">Add Task</button>
+    <ul id="____________"></ul>
+</body>
+</html>
+
+--> Assignment 3: Show/Hide Content with Animation
+
+Objective: Practice jQuery animations like fadeIn and fadeOut.
+
+Instructions:
+
+    Create an HTML page with:
+        A <p> paragraph with some sample text and the ID infoText.
+        Two buttons: one with the ID showText and another with the ID hideText.
+
+You need to complete the following code:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show/Hide Animation</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#infoText").hide(); // Initially hide the text
+
+            // Show text with fadeIn
+            $("#showText").click(function() {
+                $("#infoText").fadeIn();
+            });
+
+            // Hide text with fadeOut
+            $("#hideText").click(function() {
+                $("#infoText").fadeOut();
+            });
+        });
+    </script>
+</head>
+<body>
+    <p id="____________">This is some text that will be shown or hidden.</p>
+    <button id="____________">Show</button>
+    <button id="____________">Hide</button>
+</body>
+</html>
+
+--> Assignment 4: Image Gallery with Slide Effect
+
+Objective: Use jQuery slide effects to create a basic image gallery.
+
+Instructions:
+
+    Create an HTML page with:
+        A <div> container with the ID gallery.
+        Three <img> tags inside the gallery div with different image URLs, all initially hidden except for the first image.
+        Two buttons: one with the ID 'prev' and another with the ID 'next'.
+
+You need to complete the following code:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #gallery img { display: none; }
+        #gallery img:first-child { display: block; }
+    </style>
+    <script>
+        $(document).ready(function() {
+            let currentIndex = 0;
+            const images = $("#gallery img");
+
+            function showImage(index) {
+                images.hide().eq(index).fadeIn();
+            }
+
+            $("#next").click(function() {
+                currentIndex = (currentIndex + 1) % images.length;
+                showImage(currentIndex);
+            });
+
+            $("#prev").click(function() {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                showImage(currentIndex);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="gallery">
+        <img src="https://via.placeholder.com/200x150?text=Image1" alt="Image 1">
+        <img src="https://via.placeholder.com/200x150?text=Image2" alt="Image 2">
+        <img src="https://via.placeholder.com/200x150?text=Image3" alt="Image 3">
+    </div>
+    <button id="____________">Previous</button>
+    <button id="____________">Next</button>
+</body>
+</html>
+
+--> Assignment 5: jQuery validation plugin
+
+In this activity you’ll work with the jQuery validation plugin (https://jqueryvalidation.org), which performs basic form validation. This plugin has many features listed in its documentation. 
+For example when you configure a form control, such as an input element, 
+with one of class names specified in the documentation, the plugin will 
+automatically perform the corresponding edit. In addition the plugin 
+is configured to assign the class named error to the error messages it 
+generates. A partial list of class names supported by the plugin for data 
+validation is shown below:
+
+- required		Verifies whether data is entered
+- email			Verifies whether data is in e-mail format
+- digits		Verifies whether data is a positive integer
+- url			Verifies whether data is in url format
+
+To get started, create a new folder called 'jform'. 
+
+1. Launch a text editor and type the following code:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Newsletter Sign Up</title>
+  <meta charset="utf-8">
+<style>
+	form  { min-width: 80em; }
+	input { margin-bottom: 1em; }
+	label { width: 6em;
+	padding-right: 1em;
+        text-align: right; }
+	#submit { margin-left: 3em; }
+</style>
+</head>
+<body>
+<h1>Newsletter Sign Up</h1>
+<form method="post" id="newsForm"
+      action="https://webdevbasics.net/scripts/demo.php">
+<div>
+<label for="userName">Name:</label>
+<input type="text" name="userName" id="userName" >
+</div>
+<div>
+<label for="userEmail">E-mail:</label>
+<input type="text" name="userEmail" id="userEmail" >
+</div>
+<input type="submit" value="Sign Up" id="submit">
+</form>
+</body>
+</html>
+
+2. Edit the code as indicated:
+
+Style error messages. Edit the embedded CSS and configure styles 
+for a class named 'error' with a 1em left margin and red, italic, .90em size,
+Arial or sans-serif font typeface:                       
+
+.error { 	font-family: Arial, sans-serif;
+			font-style: italic;
+			font-size: .90em;
+            color: #FF0000;  
+			margin-left: 1em; 
+}
+
+3. Include support for jQuery using a 'script' tag, as showed in previous assignments.
+
+4. Code the following script element in the head section of your document to access the Validate plugin:  
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+                     
+5. Code script tags, the jQuery ready event, and a jQuery statement that will invoke form validation in the 'head' section of the document:
+
+<script>
+	(document).ready(function(){
+		('form').validate();
+ 	);
+</script>
+
+Edit the HTML to configure the form validation. The Name is required. 
+The e-mail address is required and should be in e-mail format. 
+Add class="required" to the input tag for the Name textbox. 
+Add class="required email" to the input tag for the e-mail textbox. Save your file with the name 'index.html'
+ in the 'jform' folder and display it in a browser. 
+
+- Try clicking the Sign Up button without entering any data. 
+
+- Next, enter information in both textboxes but do not enter a correct 
+e-mail address.
+
+- Finally, submit the form with both a name and a valid e-mail address 
+entered. With all specified edits passed, the browser will send the 
+form information to the server-side script configured in the form’s 
+action attribute and you’ll see a confirmation page display.
+
+---

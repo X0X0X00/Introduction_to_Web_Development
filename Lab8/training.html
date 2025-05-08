@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Lab 7 - Training</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navigation.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>DeepSeek</h1>
+        <div>Hangzhou DeepSeek Artificial Intelligence Basic Technology Research Co., Ltd.</div>
+    </header>
+
+    <nav class="menu">
+        <ul>
+            <li><a href="background.html">Background</a></li>
+            <li><a href="training.html" class="is-current">Training</a></li>
+            <li><a href="more-info.html">More Info</a></li>
+            <li><a href="development.html">Development</a></li>
+        </ul>
+    </nav>
+
+    <article>
+        <h2>Training Framework</h2>
+        <p>
+            High-Flyer/DeepSeek has built at least two computing clusters, Fire-Flyer (萤火一号) and Fire-Flyer 2 (萤火二号). Fire-Flyer began construction in 2019 and finished in 2020, at a cost of 200 million yuan. It contained 1100 GPUs interconnected at a rate of 200 Gbps. It was "retired" after 1.5 years in operation. Fire-Flyer 2 began construction in 2021 with a budget of 1 billion yuan.[19] It was reported that in 2022, Fire-Flyer 2 capacity had been utilized at over 96%, totaling 56.74 million GPU hours. Of those GPU hours, 27% was used to support scientific computing outside the company.[19]
+            Fire-Flyer 2 consisted of co-designed software and hardware architecture. On the hardware side, there are more GPUs with 200 Gbps interconnects. The cluster is divided into two "zones", and the platform supports cross-zone tasks. The network topology was two fat trees, chosen for its high bisection bandwidth. On the software side, there are[29][19]
+        </p>
+
+        <p>
+            3FS (Fire-Flyer File System): A distributed parallel file system. It was specifically designed for asynchronous random reads from a dataset, and uses Direct I/O and RDMA Read. In contrast to standard Buffered I/O, Direct I/O does not cache data. Caching is useless for this case, since each data read is random, and would not be reused.[30]
+            hfreduce: Library for asynchronous communication, originally designed to replace Nvidia Collective Communication Library (NCCL).[31] It was mainly used for allreduce, especially of gradients during backpropagation. It is asynchronously run on the CPU to avoid blocking kernels on the GPU.[29] It uses two-tree broadcast like NCCL.[31]
+        </p>
+
+        <p>
+            Software library of commonly used operators in neural network training, similar to torch.nn in PyTorch.
+            HaiScale Distributed Data Parallel (DDP): Parallel training library that implements various forms of parallelism in deep learning such as Data Parallelism (DP), Pipeline Parallelism (PP), Tensor Parallelism (TP), Experts Parallelism (EP), Fully Sharded Data Parallel (FSDP) and Zero Redundancy Optimizer (ZeRO). It is similar to PyTorch DDP, which uses NCCL on the backend.
+            HAI Platform: Various applications such as task scheduling, fault handling, and disaster recovery.[32]
+            During 2022, Fire-Flyer 2 had 5000 PCIe A100 GPUs in 625 nodes, each containing 8 GPUs. At the time, they chose to exclusively use PCIe instead of DGX version of A100, since at the time the models they trained could fit within a single 40 GB GPU VRAM, so there was no need for the higher bandwidth of DGX (i.e. they required only data parallelism but not model parallelism).[31] Later, they also incorporated NVLinks and NCCL, to train larger models that required model parallelism.[33][29]            
+        </p>
+       
+    </article>
+
+    <aside>
+        <h2>GPU Details</h2>
+        <p>
+            Fire-Flyer 2 was equipped with 5000 PCIe A100 GPUs distributed across 625 nodes, each node containing 8 GPUs. This design allowed for high-throughput training while keeping costs and complexity manageable. In its early stages, DeepSeek models were small enough to fit within the 40 GB VRAM of a single A100, eliminating the need for model parallelism. This justified the decision to use the PCIe version rather than the more expensive NVLink-based DGX systems.
+        </p>
+    </aside>
+</div>
+</body>
+</html>

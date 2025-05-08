@@ -1,0 +1,58 @@
+/* 1. 设置全局字体和背景 */
+body {
+    background-color: #2C3E50;
+    color: #ECF0F1;
+    font-family: Georgia, serif;
+}
+
+/* 2. 修改 h1 样式 */
+h1 {
+    color: #E74C3C;
+    border-bottom: 2px solid #E74C3C;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+/* 3. 让 p 之间间距更大 */
+p {
+    font-size: 18px;
+    line-height: 1.6em;
+    margin-bottom: 15px;
+}
+
+/* 4. 修改 a 样式 */
+a {
+    color: #3498DB;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #E67E22;
+}
+
+/* 5. 伪类 */
+p:first-child {
+    font-weight: bold;
+}
+
+h2:nth-of-type(2n) {
+    color: #9B59B6;
+}
+
+/* 6. 自定义类 */
+.highlight {
+    background-color: yellow;
+    font-weight: bold;
+}
+
+.custom-list li {
+    list-style-type: square;
+    color: #E74C3C;
+}
+
+.box {
+    background-color: #ECF0F1;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}

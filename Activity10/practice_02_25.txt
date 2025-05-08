@@ -1,0 +1,124 @@
+--> Activity 1 (Tables)
+
+In this activity, you will create a web page for describing two schools 
+you have attended. Use the caption "School History Table." The table will 
+include three rows and three columns. The first row will have table header elements with the headings "School Attended", "Years", and "Degree Awarded". You will complete the second and third rows with your own information within table data elements.
+To get started, launch a text editor and copy the HTML below. Save the 
+file as 'mytable.html'. Modify the title element. Use the table, table 
+row, table header, table data, and caption elements discussed in lecture
+to configure the table.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Page Title Goes Here</title>
+<meta charset="utf-8">
+</head>
+<body>
+
+</body>
+</html>
+
+Hints:
+• The table has three rows and three columns.
+• To configure a border, use border="1" on the <table> tag.
+• Use the table header element for the cells in the first row.
+Save your file and display it in a browser.
+
+--> Activity 2 (Tables Styling)
+
+In this activity, you will code CSS style rules to configure an 
+informational table on a web page. Create a folder named 'tables'. 
+Copy the HTML below to a new file 'starter.html' and save it in your 
+'tables' folder. We'll use embedded styles for ease of editing and 
+testing your page. Open the 'starter.html' file in a browser.
+
+<!DOCTYPE html>  
+<html lang="en">
+<head>
+<title>Table Practice</title>
+<meta charset="utf-8">
+<style>
+
+</style>
+</head>
+<body>
+ <table>  
+ <caption>Lighthouse Island Bistro Specialty Coffee Menu</caption>
+   <tr>
+     <th>Specialty Coffee</th>
+	 <th>Description</th>
+     <th>Price</th>
+  </tr>
+  <tr>
+     <td>Lite Latte</td>
+     <td>Indulge in a shot of espresso with steamed, skim milk. </td>
+	 <td>$3.50</td>
+  </tr>
+  <tr>
+     <td>Mocha Latte</td>
+     <td>Choose dark or mile chocolate with steamed milk.</td>
+	 <td>$4.00</td>
+   </tr>
+    <tr>
+     <td>MCP Latte</td>
+     <td>A lucious mocha latte with caramel and pecan syrup.</td>
+	 <td>$4.50</td>
+  </tr>
+</table>
+
+</body>
+</html>
+
+Launch a text editor and open 'starter.html' from your 'tables' folder. 
+Locate the <style> tags in the head section. You will code embedded CSS 
+in this activity. Place your cursor on the blank line between the style tags.
+
+1. Configure the table element selector to be centered, have a dark blue, 
+5 pixel
+­border, and have a width of 600px. Complete the CSS rules accordingly:
+
+	table { 
+		...
+	}
+
+Save the file as 'menu.html'. Open your page in a browser. Notice that there is a border surrounding the entire table but not surrounding each table cell.
+
+2. Configure the td and th element selectors with a border, padding, and Arial or the default sans-serif font typeface. Complete the CSS rules accordingly:
+
+	td, th { 
+		...
+	}
+
+Save the file and open your page in a browser. Each table cell should now be outlined with a border and should display text in a sans-serif font.
+
+3. Notice the empty space between the borders of the table cells. This empty space can be eliminated with the border-spacing property. Add a 'border-spacing: 0;' declaration to the 'table' element selector. Save the file and open your page in a browser.
+
+4. Configure the caption to be displayed with Verdana or the default sans-serif font typeface, bold font weight, 1.2em font size, and 0.5em of bottom padding. Complete the CSS rules accordingly:
+
+	caption { 
+		font-family: Verdana, sans-serif;
+		...
+	}
+
+5. Let's experiment and configure background colors for the rows instead of cell borders. ­Modify the style rule for the 'td' and 'th' element selectors, remove the border declaration, and set 'border-style' to 'none'. Complete the CSS rules accordingly:
+
+	td, th { 
+		...
+		font-family: Arial, sans-serif; 
+	}
+
+6. Create a new class called 'altrow' that sets a background color.
+
+	.altrow { background-color: #eaeaea; }
+
+7. Modify the <tr> tags in the HTML. Assign the second and fourth <tr> 
+tags to the 'altrow' class. Save the file and open your page in a browser.
+
+Notice how the background color of the alternate rows adds subtle interest 
+to the web page.
+
+
+--> Additional activity to complete on your own time:
+
+Apply a zebra stripe effect to the table created above.

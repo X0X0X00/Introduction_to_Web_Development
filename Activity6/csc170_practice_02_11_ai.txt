@@ -1,0 +1,222 @@
+--> Activity 1
+
+Let’s practice using a background image. In this activity, you will work with the 'kayak' folder. You will configure the <main> element selector with a background image that does not repeat. Obtain the 'heroback.jpg' image from BB. Copy the image into your 'kayak' folder. 
+
+Launch a text editor and type the following code:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>KayakDoorCounty.net</title>
+<style>
+	#bar { background-color: #152420; }
+	img { border: none; }
+</style>
+</head>
+<body>
+<header> 
+  <h1>	
+	<img src="kayakdc.gif" alt="KayakDoorCounty.net" width="500" height="60">
+  </h1>
+</header>
+<nav id="bar">
+<a href="index.html"><img src="home.gif" alt="Takin you home" ></a> &nbsp;
+<a href="tours.html"><img src="tours.gif" alt="Takin you home" ></a> &nbsp;
+<a href="reservations.html"><img src="reservations.gif" alt="Reserve here" ></a> &nbsp;
+<a href="contact.html"><img src="contact.gif" alt="Contact Us" ></a> &nbsp;
+</nav>
+<main>
+<h2>Your next adventure is only a paddle away ....</h2>
+
+<img src="hero.jpg" alt="Person in Kayak" width="500" height="350">
+
+<p>Take a guided kayak tour while you explore the shoreline of scenic Door County. </p>
+<h3>Featured tours this week:</h3>
+<ul>
+  <li>Cana Island</li>
+  <li>Mink River</li>
+  <li>Europe Lake</li>
+</ul>
+</main>
+<footer>
+<small><i>Copyright &copy; 2020 KayakDoorCounty.net</i></small>
+</footer>
+</body>
+</html>
+
+
+Step 1: Locate the <style> tags in the <head> section. Code a new style rule for the main element selector to configure the 'background-image' and 'background-repeat' properties. Set the background image to be 'heroback.jpg'. Set the background not to repeat. The <main> element selector style rules follow:
+
+	main { background-image: url(heroback.jpg); background-repeat: no-repeat; }
+
+Step 2: Remove the img tag that displays the hero.jpg image from the body of the web page.
+
+Save your page as 'index.html'. Launch a Firefox or Chrome browser, and test your page. You may notice that the text within the main element is displayed over the background image. In this case, the page would look more appealing if the paragraph did not extend across the background image. 
+
+Step 3: Open 'index.html' in a text editor and code a line break tag before the word "explore".
+
+Save and test your page again in Firefox or Chrome.
+
+--> Activity 2
+
+Let's practice using a favorites icon. Obtain the 'favicon.ico' file from BB. In this activity, you will use your files in the 'kayak' folder as a starting point.
+
+Launch a text editor, and open 'index.html' you created in Activity 1.
+
+Step 4: Add the following link tag to the head section of the web page:
+
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+Save your file. Launch the Firefox browser, and test your page. You should notice the small kayaker image in the Firefox browser tab.
+
+–-> Activity 3 
+
+Let's practice configuring multiple background images. In this activity, you will configure the <body> element selector to display multiple background images on the web page. Create a new folder named 'coffee'. Copy all the files you get when you unzip the file coffeestarters.zip (BB) into your 'coffee' folder. Launch a text editor and type the following code:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Coffee House</title>
+<meta charset="utf-8">
+<style>
+body { font-size: 150%;
+	   font-family: Arial, sans-serif; 
+	   color: #992435; 
+	   background-image: url(coffeepour.jpg); 
+	   background-repeat: no-repeat;
+	   background-size: cover;
+	   background-attachment: fixed;   
+}
+
+</style>
+</head>
+<body>
+<header>
+<h1>Coffee House</h1>
+</header>
+<main>
+<p>Enjoy a great cup of coffee<br>or tea at Coffee House!</p>
+<ul>
+  <li>Specialty Coffee and Tea</li>
+  <li>Gluten-free Pastries</li>
+  <li>Organic Salads</li>
+</ul>
+</main>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>   
+</body>
+</html>
+
+Style declarations for browsers that do not support multiple backgrounds are already coded. 
+
+Step 5: Add style declarations to the 'body' selector to configure the background property for multiple background images: configure 'coffee.gif' to display on the bottom left without repeating, configure 'coffeepour.jpg' to display without repeating as a fixed background. Also set the 'background-size' property for multiple images by separating their background-size values by a comma. Configure 'auto' for 'coffee.gif' and 'cover' for 'coffeepour.jpg'. The new code follows: 
+
+background: url(coffee.gif) no-repeat left bottom;
+		  url(coffeepour.jpg) no-repeat fixed;
+background-size: auto, cover;
+
+Save your file as 'index.html'. Launch a browser and test your page in a modern browser. Your display should be similar to the figure. If the page is displayed in a browser that does not support multiple background images, only the large photograph will be displayed. 
+
+
+–-> Activity 4
+
+You’ll configure a logo header area that uses a background image and rounded borders in this activity.
+
+
+1. Create a new folder called `border` and copy `lighthouselogo.jpg` and `background.jpg` into it.
+
+2. Type the following code in your text editor and save it to your 'border' folder as 'index.html':
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Lighthouse Bistro</title>
+		<meta charset="utf-8">
+		<style>
+			body {background-image: url(background.jpg);
+				  font-family: Arial, Verdana, sans-serif;
+				  }
+			h2 { color: #000033; 
+				 font-family: arial, sans-serif;
+			}
+			nav { word-spacing: 2em; }
+			footer { font-size: .80em;
+					  font-style: italic;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>Lighthouse Bistro</h1>
+		</header>
+		<nav><a href="index.html">Home</a> <a href="menu.html">Menu</a> <a href="directions.html">Directions</a> <a href="contact.html">Contact</a></nav>
+		<main>
+			<h2>Locally Roasted Free-Trade Coffee</h2>
+			<p>Indulge in the aroma of freshly ground roast coffee. Specialty
+			 drinks are available hot or cold.</p>
+			<h2>Specialty Pastries</h2>
+			<p>Enjoy a selection of our fresh-baked, organic pastries, including fresh-fruit muffins, scones, croissants, and cinnamon rolls.</p>
+			<h2>Lunchtime is Anytime</h2>
+			<p>Savor delicious wraps and sandwiches on hearty, whole-grain breads with locally-grown salad, fruit, and vegetables. </p>
+		</main>
+		<footer>Copyright &copy; 2020 Your Name Here</footer>
+	</body>
+</html>
+
+
+Step 6: Edit the embedded CSS, and add the following style declarations to the <h1> element selector that will configure the 'lighthouselogo.jpg' image as a background image that does not repeat: height set to 100px, width set to 650px, font size set to 3em, 150px of left padding, 30px of top padding, and a solid dark-blue border (#000033) with a border radius of 15px. The style declarations are as follows:
+
+h1 { background-image: url(lighthouselogo.jpg);
+background-repeat: no-repeat;
+height: 100px; width: 650px; font-size: 3em;
+padding-left: 150px; padding-top: 30px;
+border: 1px solid #000033;
+border-radius: 15px; }
+
+Save the file. When you test your index.html file in a browser.
+
+–-> Activity 5
+
+You’ll configure a centered content area and apply the box-shadow and text-shadow properties in this activity.
+Create a new folder called 'shadow'. Copy the lighthouselogo.jpg and the background.jpg files to your 'shadow' folder.
+Launch a text editor, and open the index.html file from the previous activity. Save the file in your 'shadow' folder.
+
+Step 7: Configure the page content to be centered, with an 800-pixel width, a white background,
+and some padding.
+
+a. Edit the HTML. Configure a div element assigned to the id named container
+that wraps the code within the body section. Code the opening <div> tag on a
+new line after the opening body tag. Code a closing div tag on a new line before
+the closing body tag.
+b. Edit the embedded CSS to configure a new selector, an id named container.
+Configure a white background color and 20 pixels of padding. Use the width,
+min-width, max-width, margin-left, and margin-right properties as follows:
+
+#container { background-color: #ffffff;
+padding: 20px;
+width: 80%; min-width: 800px; max-width: 960px;
+margin-right: auto;
+margin-left: auto; }
+
+2. Edit the embedded CSS to add the following style declarations to the #container
+selector to configure a box shadow:
+
+box-shadow: 5px 5px 5px #1e1e1e;
+
+3. Add the following style declaration to the h1 element selector to configure a dark-gray
+text shadow:
+
+text-shadow: 3px 3px 3px #666;
+
+4. Add the following style declaration to the h2 element selector to configure a lightgray
+text shadow with no blur:
+
+text-shadow: 1px 1px 0 #ccc;
+
+5. Save the file and test it in different browsers.
+
+--

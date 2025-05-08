@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Contact Form</title>
+    <style>
+        fieldset {
+            width: 320px;
+            border: 2px ridge #ff0000;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        legend {
+            font-family: Georgia, "Times New Roman", serif;
+            font-weight: bold;
+        }
+        label {
+            font-family: Arial, sans-serif;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contact Us</h1>
+    <form method="get">
+        <fieldset>
+            <legend>Customer Information</legend>
+            <label>First Name: <input type="text" name="fname" id="fname"></label>
+            <label>Last Name: <input type="text" name="lname" id="lname"></label>
+            <label>E-mail: <input type="text" name="email" id="email"></label>
+        </fieldset>
+        <label for="comments">Comments</label>
+        <textarea name="comments" id="comments" rows="4" cols="40"></textarea>
+        <input type="submit" value="Contact">
+        <input type="reset">
+    </form>
+</body>
+</html>

@@ -1,0 +1,132 @@
+--> Activity 1
+
+Part 1: Vulnerable Bank Transfer Page
+
+In this activity, we'll simulate a bank account with a page that allows users to transfer money.
+
+Here’s a simplified version of the bank transfer page (transfer.php), which doesn’t include CSRF protection.
+
+<?php
+session_start();
+if (!isset($_SESSION['loggedin'])) {
+    echo "You must be logged in to transfer money.";
+    exit;
+}
+
+// Simulate transferring money
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $amount = $_POST['amount'];
+    $recipient = $_POST['recipient'];
+
+    // Simulate the money transfer
+    file_put_contents('transactions.txt', "Transferred $amount to $recipient\n", FILE_APPEND);
+    echo "Transferred $amount to $recipient.";
+} else {
+?>
+    <h2>Bank Transfer</h2>
+    <form method="POST" action="transfer.php">
+        <input type="text" name="recipient" placeholder="Recipient Account" required>
+        <input type="number" name="amount" placeholder="Amount" required>
+        <button type="submit">Transfer</button>
+    </form>
+<?php
+}
+?>
+
+Explanation:
+
+    Session check: If $_SESSION['loggedin'] is not set, the page will show a message saying the user must be logged in.
+
+    Money transfer: When the user submits the form, the page will simulate transferring money to the recipient by writing to a file called transactions.txt.
+
+    No CSRF protection: There’s no way to verify whether the POST request is legitimate or if it’s coming from the user intentionally.
+
+💥 Part 2: Malicious Page (csrf-attack.html)
+
+This is a malicious page that will trick a logged-in user into transferring money to an attacker’s account without their knowledge.
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Claim Your Prize!</title>
+</head>
+<body>
+  <h1>🎉 Congratulations! 🎉</h1>
+  <p>You’ve been selected for an exclusive reward.</p>
+  <p>Click the button below to claim your prize.</p>
+
+  <form id="csrf-form" action="./transfer.php" method="POST">
+    <input type="hidden" name="recipient" value="attacker123">
+    <input type="hidden" name="amount" value="1000">
+    <button type="submit">Claim Your Prize</button>
+  </form>
+</body>
+</html>
+
+Explanation:
+
+    Form submission: This form is hidden and automatically submits itself as soon as the page is loaded.
+
+    Attack: The form will submit to transfer.php, where recipient is set to "attacker123" and the amount is "1000". The user's browser sends the cookies (session ID) with the request, making it seem like the logged-in user is the one submitting the transfer request.
+
+    Result: When a logged-in user visits this page, the form is submitted on their behalf, and the attacker receives money as if the user authorized it.
+
+🔄 Part 3: Test the CSRF Attack
+Step 1: Simulate the Login (optional)
+
+Since this is a simplified simulation, add the following at the top of transfer.php to simulate a logged-in user for testing purposes:
+
+$_SESSION['loggedin'] = true;  // Simulate user login
+
+Step 2: Test the Transfer Page
+
+    Upload transfer.php to betaweb or use your local server.
+
+    Open the transfer.php page in your browser and try transferring money. This should work normally if you're logged in.
+
+    Do not log out — leave the session active.
+
+    Open the csrf-attack.html file in a new browser tab or window.
+
+Step 3: Observe the Attack
+
+    The malicious page (csrf-attack.html) will automatically submit the transfer form, and the browser will send the cookies (including the session cookie) to the server.
+
+    The server will process the request, and the attacker will receive a transaction of $1000 as if the user had initiated it.
+
+    Check the transactions.txt file. You should see something like:
+
+Transferred 1000 to attacker123
+
+🔐 Part 4: Fixing the CSRF Vulnerability
+
+To prevent this CSRF attack, you should use a CSRF token. This ensures that any form submission is valid and intended by the user.
+
+Step 1: Generate a CSRF Token
+
+Add the following code to generate a unique token and store it in the session:
+
+$_SESSION['token'] = bin2hex(random_bytes(32));  // Generate a unique token
+
+Step 2: Include the Token in the Form
+
+Modify the transfer.php form to include the CSRF token:
+
+<input type="hidden" name="token" value="<?php echo $_SESSION['token']; ?>">
+
+Step 3: Validate the CSRF Token
+
+Before processing the transfer, check that the token sent with the form matches the one stored in the session:
+
+if (!isset($_POST['token']) || $_POST['token'] !== $_SESSION['token']) {
+    die("CSRF token validation failed.");
+}
+
+Step 4: Test Again
+
+    Revisit the transfer.php page and refresh it.
+
+    Open the csrf-attack.html file in another tab.
+
+    This time, the CSRF attack will fail, as the malicious form does not have the correct CSRF token, and the server will reject the request.
+

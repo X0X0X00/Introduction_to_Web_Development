@@ -1,0 +1,446 @@
+Activities are an important part of your learning process. Please read the code carefully, while working on the activities. Make sure you understand the purpose of the different parts and ask questions, if needed.
+
+Note: Work on as many activities as possible. Complete your work after lecture, if not done. Show your progress.
+
+--> Activity 1: Key Logger
+
+In this activity, you will create a basic key logger using JavaScript. This key logger will capture and display each key pressed by the user within an input field in real time.
+
+Objective
+
+    - Learn to capture keyboard events using JavaScript.
+    - Practice using event listeners to handle user input.
+    - Update and display the logged keys dynamically on the web page.
+
+Steps
+
+Set Up the HTML Structure
+
+Start by creating a simple HTML file with the following elements:
+        - An <input> field where the user can type text.
+        - A <div> or <p> element to display the keys that have been pressed.
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Key Logger</title>
+</head>
+<body>
+    <h1>Key Logger Assignment</h1>
+    <p>Type in the input field below, and see the keys logged in real time:</p>
+
+    <!-- Input field for typing -->
+    <input type="text" id="keyLoggerInput" placeholder="Type here...">
+
+    <!-- Display area for logged keys -->
+    <p>Logged Keys: <span id="loggedKeys"></span></p>
+
+    <!-- Link to JavaScript file (add script tag -- see below) -->
+</body>
+</html>
+
+Add the JavaScript File
+
+Create a JavaScript file named keylogger.js. Link it to the HTML file by adding this line at the end of the <body> section:
+
+<script src="keylogger.js"></script>
+
+Capture Keyboard Events
+
+In keylogger.js, select the input field and display area using JavaScript:
+
+// Select the input field and display area
+const inputField = document.getElementById('keyLoggerInput');
+const displayArea = document.getElementById('loggedKeys');
+
+Add an Event Listener for Key Presses
+
+Use the addEventListener method to listen for keydown events on the input field. Each time a key is pressed, this event will trigger a function to log the key.
+
+// Add an event listener to capture key presses - fill in the blanks as needed
+___________.addEventListener('keydown', function(event) {
+    // Get the key that was pressed
+    const key = event.key;
+
+    // TODO: Update the logged keys display (see below)
+});
+
+Display the Logged Keys
+
+Complete the event listener function to update displayArea each time a key is pressed. You can add each key to the display, separated by a space.
+
+    // Add an event listener to capture key presses - fill in the blanks as needed
+    inputField._____________('keydown', function(event) {
+        const key = event.key; // Get the pressed key
+
+        // Add the key to the display area
+        ____________.textContent += key + ' '; // Add a space after each key
+    });
+
+    Test the Key Logger
+        Open your HTML file in a browser and start typing in the input field.
+        Check if the keys are being displayed in the logged keys area.
+        Notice how every key press updates the display in real time!
+
+Expected Output
+
+As you type in the input field, the keys should appear, separated by spaces, in the "Logged Keys" area.
+
+--> Activity 2: Form Validation
+
+In this activity, you will create a simple form that validates user input in real-time using JavaScript. The form will check for required fields and ensure that an email address is properly formatted before allowing submission.
+
+Objective
+
+    - Understand how to use JavaScript to validate form input.
+    - Practice working with form events.
+    - Learn to provide real-time feedback to users on their input.
+
+Steps
+
+    Set Up the HTML Structure
+
+    Create an HTML file with a form that includes the following elements:
+        A text input for the user's name.
+        An email input for the user's email address.
+        A submit button.
+        A <p> element to display error messages.
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+</head>
+<body>
+    <h1>Form Validation Assignment</h1>
+    <p>Fill out the form below. The fields will be validated as you type.</p>
+
+    <!-- Form structure -->
+    <form id="userForm">
+        <!-- Name field -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <br>
+
+        <!-- Email field -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <br>
+
+        <!-- Submit button -->
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Area to display error messages -->
+    <p id="errorMessages" style="color: red;"></p>
+
+    <!-- Link to JavaScript file (add script tag -- see below) -->
+</body>
+</html>
+
+Add the JavaScript File
+
+Create a JavaScript file named formValidation.js. Link it to the HTML file by adding this line at the end of the <body> section:
+
+<script src="formValidation.js"></script>
+
+Select the Form and Error Display Elements
+In formValidation.js, select the form and the error message display area using JavaScript.
+
+// Select the form and error message display - fill in the blanks as needed
+const form = document.____________('userForm');
+const errorDisplay = document.getElementById('errorMessages');
+
+Add an Event Listener for Form Submission
+
+Prevent the form from submitting if any validation rules are not met. Add an addEventListener to listen for the submit event on the form.
+
+// Add an event listener to handle form submission - fill in the blanks as needed
+____________.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // TODO: Validate the name and email fields (see below)
+});
+
+Implement the Validation Logic
+
+Inside the submit event listener, add code to validate:
+
+    - The name field: It should not be empty.
+    - The email field: It should contain an "@" symbol and a period (".") for basic email format validation.
+
+    // (!) remember to fill in the blanks as needed
+    form.______________('submit', function(event) {
+        event.preventDefault();
+
+        // Clear previous error messages
+        errorDisplay.textContent = '';
+
+        // Get the values of name and email fields
+        const name = form.name.value.trim();
+        const email = form.email.value.trim();
+
+        let errors = [];
+
+        // Validate the name field
+        if (name === '') {
+            errors.push('Name is required.');
+        }
+
+        // Validate the email field
+        if (email === '' || !email.includes('@') || !email.includes('.')) {
+            errors.push('Please enter a valid email address.');
+        }
+
+        // Display errors or submit form if no errors
+        if (errors.length > 0) {
+            errorDisplay.textContent = errors.join(' ');
+        } else {
+            errorDisplay.textContent = 'Form submitted successfully!';
+            // Optional: Uncomment the next line to actually submit the form
+            // form.submit();
+        }
+    });
+
+    Test the Form Validation
+        Open your HTML file in a browser and try submitting the form with various inputs.
+        Check if error messages display when the name or email fields are incorrect.
+        Try entering a valid name and email to see the success message.
+
+Expected Outcome
+
+The form should display an error message if:
+
+    The name field is empty.
+    The email field is incorrectly formatted.
+
+If both fields are valid, a success message should appear.
+
+--> Activity 3: Mouse Hover Effects
+
+In this activity, you will create a simple webpage where an image changes appearance when a user hovers over it. This will help you understand how to handle mouse events in JavaScript, specifically the mouseover and mouseout events.
+
+Objective
+
+    - Learn to use JavaScript mouse events to change the style of an element.
+    - Understand the basics of the mouseover and mouseout events in JavaScript.
+    - Practice applying inline styles to elements using JavaScript.
+
+Steps
+
+    Set Up the HTML Structure
+    Create an HTML file that includes an image and a description paragraph below it. The image will change its appearance when you hover over it.
+    Use an image file of your choice (remember to check correct path for the file)
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mouse Hover Effects</title>
+    <style>
+        /* Add initial styles for the image */
+        #hoverImage {
+            width: 200px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mouse Hover Effects Assignment</h1>
+    <p>Hover over the image to see the effect!</p>
+
+    <!-- Image that will have hover effects -->
+    <img id="hoverImage" src="example.jpg" alt="Hover to see effect">
+
+    <!-- Description text below the image -->
+    <p id="descriptionText">This is a sample image. Hover to see what happens!</p>
+
+    <!-- Link to JavaScript file (add script tag -- see below) -->
+</body>
+</html>
+
+Add the JavaScript File
+
+Create a JavaScript file named hoverEffects.js and link it to your HTML file by adding this line at the end of the <body> section:
+
+<script src="hoverEffects.js"></script>
+
+Select the Image and Text Elements
+
+In hoverEffects.js, select the image and the description text elements using JavaScript.
+
+// Select the image and the description text - fill in the blanks as needed
+const image = document._____________('hoverImage');
+const description = document.getElementById('descriptionText');
+
+Add Event Listeners for Mouse Hover
+
+Attach mouseover and mouseout event listeners to the image element. These events will trigger functions to change the image's appearance when the mouse hovers over it and reset it when the mouse leaves.
+
+
+// Add event listeners for mouse hover effects - fill in the blanks as needed
+__________.addEventListener('mouseover', applyHoverEffect);
+image._______________('mouseout', resetHoverEffect);
+
+// TODO: Define the applyHoverEffect and resetHoverEffect functions (see below)
+
+Define the Hover Effect Functions
+
+Create the applyHoverEffect function to change the image’s appearance on hover. For example:
+
+    Increase the scale of the image (e.g., scale it to 1.2).
+    Reduce its opacity.
+
+Also, define the resetHoverEffect function to revert the image back to its original appearance.
+
+    // Function to apply the hover effect
+    function applyHoverEffect() {
+        image.style.transform = 'scale(1.2)';
+        image.style.opacity = '0.8';
+        description.textContent = "You're hovering over the image!";
+    }
+
+    // Function to reset the hover effect
+    function resetHoverEffect() {
+        image.style.transform = 'scale(1)';
+        image.style.opacity = '1';
+        description.textContent = 'This is a sample image. Hover to see what happens!';
+    }
+
+    Test the Hover Effect
+        Open your HTML file in a browser and hover over the image.
+        Check that the image scales up and fades slightly when you hover over it, and that the description text changes.
+        Move the mouse away and see if the image returns to its original size and opacity, with the description resetting as well.
+
+Expected Outcome
+
+When you hover over the image, it should:
+
+    Scale up to a larger size.
+    Fade slightly in opacity.
+    Display a message below it indicating that the mouse is hovering over the image.
+
+When you move the mouse away, the image and the description text should revert to their original state.
+
+--> Activity 4: Form Validation
+
+This activity is similar to Activity 2, but with a different approach. You will create a simple form that collects a user's name and email address. You'll use JavaScript to validate the form data to ensure that:
+
+    The name field is not empty.
+    The email address follows a basic email pattern.
+
+This will help you understand how to work with form events, especially the submit event, and perform basic validation.
+Objective
+
+    - Learn to validate form input fields using JavaScript.
+    - Prevent form submission if validation fails.
+    - Practice using the submit event and basic string methods for validation.
+
+Steps
+
+    Set Up the HTML Structure
+    Create an HTML file that includes a form with two fields: name and email. Also, add a submit button.
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+    <style>
+        /* Add some basic styling */
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Form Validation Assignment</h1>
+    <p>Please fill out the form below and submit:</p>
+
+    <!-- Form structure -->
+    <form id="userForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Place for error messages -->
+    <p id="errorMessages" class="error"></p>
+
+    <!-- Link to JavaScript file (add script tag in Step 2) -->
+</body>
+</html>
+
+Add the JavaScript File
+Create a JavaScript file named formValidation.js and link it to your HTML file by adding this line at the end of the <body> section:
+
+<script src="formValidation.js"></script>
+
+Select the Form and Error Elements
+In formValidation.js, select the form and error message elements using JavaScript.
+
+// Select the form and error message elements
+const form = document.getElementById('userForm');
+const errorMessages = document.getElementById('errorMessages');
+
+Add an Event Listener for Form Submission
+Attach a submit event listener to the form element. This event will trigger a function to validate the form data when the user tries to submit.
+
+// Add event listener for form submission - fill in the blanks as needed
+form.addEventListener('submit', ________________);
+
+// TODO: Define the validateForm function (see below)
+
+Define the Validation Function
+Create the validateForm function to check if the name and email fields meet the requirements:
+
+    Name field: Ensure it’s not empty.
+    Email field: Ensure it matches a basic email pattern (e.g., includes "@" and ".").
+
+If validation fails, display an error message and prevent form submission.
+
+    // Function to validate the form data
+    function validateForm(event) {
+        // Clear any previous error messages
+        errorMessages.textContent = '';
+
+        // Get form field values
+        const name = form.name.value.trim();
+        const email = form.email.value.trim();
+
+        // Initialize an empty array to collect errors
+        let errors = [];
+
+        // Validate name field
+        if (name === '') {
+            errors.push('Name is required.');
+        }
+
+        // Validate email field
+        if (!email.includes('@') || !email.includes('.')) {
+            errors.push('Please enter a valid email address.');
+        }
+
+        // If there are errors, prevent form submission and show errors
+        if (errors.length > 0) {
+            event.preventDefault(); // Prevent form from submitting
+            errorMessages.textContent = errors.join(' ');
+        }
+    }
+
+    Test the Validation
+        Open your HTML file in a browser.
+        Try submitting the form with both fields empty, only one field filled, and an invalid email format (e.g., missing "@" or ".").
+        Make sure that appropriate error messages are displayed, and the form is only submitted if all validations pass.
+
+Expected Outcome
+
+When you attempt to submit the form:
+
+    If the name field is empty, it should display an error saying, "Name is required."
+    If the email is not in a basic email format, it should display an error saying, "Please enter a valid email address."
+    If all fields are filled correctly, the form should submit successfully without any error messages.
+
+---

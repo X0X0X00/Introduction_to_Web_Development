@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Interactive Continent Map</title>
+</head>
+<body>
+    <h1>Explore the Continents</h1>
+    <p>Click on different continents to learn more.</p>
+    
+    <img src="continents.jpg" alt="World Continents Map" usemap="#continentmap" width="600" height="400">
+
+    <map name="continentmap">
+        <!-- Example areas -->
+        <area shape="rect" coords="50,50,150,150" href="https://en.wikipedia.org/wiki/North_America" alt="North America">
+        <area shape="circle" coords="400,300,500,250,550,350,450,400" href="https://en.wikipedia.org/wiki/Europe" alt="Europe">
+        <area shape="poly" coords="300,200,50" href="https://en.wikipedia.org/wiki/Africa" alt="Africa">
+        <area shape="poly" coords="200,100,300,200,400,100" href="https://en.wikipedia.org/wiki/Asia" alt="Asia">
+        <area shape="poly" coords="500,100,600,200,500,300,400,200" href="https://en.wikipedia.org/wiki/Australia" alt="Australia">
+        <area shape="poly" coords="200,300,300,400,400,300" href="https://en.wikipedia.org/wiki/South_America" alt="South America">
+        <area shape="poly" coords="500,300,600,400,500,500,400,400" href="https://en.wikipedia.org/wiki/Antarctica" alt="Antarctica">
+    </map>
+</body>
+</html>

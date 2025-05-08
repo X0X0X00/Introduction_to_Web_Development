@@ -1,0 +1,51 @@
+The 'transition' property allows you to change property values 
+smoothly (over a given duration), rather than instantly. 
+
+Syntax
+
+transition: property duration timing-function delay;
+
+Components
+
+    property: The CSS property you want to animate (e.g., width, background-color, transform, etc.). Use all to apply the transition to all properties that change.
+
+    duration: How long the transition should take (e.g., 2s for 2 seconds or 500ms for 500 milliseconds).
+
+    timing-function (optional): The speed curve of the transition. Common values:
+
+        ease (default): Starts slow, speeds up, then slows down.
+
+        linear: Constant speed.
+
+        ease-in: Starts slow.
+
+        ease-out: Ends slow.
+
+        ease-in-out: Starts and ends slow.
+
+    delay (optional): Wait before starting the transition.
+
+The 'transform' property lets you visually manipulate an element — move it, scale it, rotate it, skew it, or combine several transformations at once.
+Syntax
+
+transform: transform-function(value);
+
+Common Transform Functions
+
+    translateX(n) / translateY(n) / translate(nX, nY): Moves the element along the X and/or Y axis.
+
+transform: translateX(100px);
+
+rotate(deg): Rotates the element.
+
+transform: rotate(45deg);
+
+scale(n) or scaleX(n) / scaleY(n)**: Enlarges or shrinks the element.
+
+transform: scale(1.5); /* 150% size */
+
+skewX(deg) / skewY(deg): Skews the element.
+
+transform: skewX(20deg);
+
+matrix(a, b, c, d, e, f): Advanced 2D transformations using a transformation matrix.

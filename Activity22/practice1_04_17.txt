@@ -1,0 +1,139 @@
+🧪 In-Class Challenge: XSS Battle — Build, Break, and Defend
+
+Course: Introduction to Web Development
+Topic: Cross-Site Scripting (XSS)
+Language: PHP + HTML
+Teams: Group A 🔵 and Group B 🟢
+🎯 Objectives
+
+    Understand how XSS attacks work and how they can be exploited
+
+    Practice writing vulnerable PHP pages (on purpose!)
+
+    Explore common XSS payloads and how they behave in browsers
+
+    Learn and apply techniques to defend against XSS
+
+🧩 Activity Overview
+Phase 1 – 🔧 Build a Vulnerable Website
+
+Each group builds its own vulnerable guestbook-style website using PHP and HTML.
+
+You must:
+
+    Accept user input via a form
+
+    Store the input
+
+    Display the stored input on the page without escaping or filtering it
+
+🚫 Do not use htmlspecialchars() or any filtering yet — the goal is to create a realistic vulnerability for attackers to exploit.
+📁 Group A: groupA_guestbook.php
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    file_put_contents("groupA_messages.txt", $_POST["name"] . ": " . $_POST["message"] . "\n", FILE_APPEND);
+}
+$messages = file("groupA_messages.txt", FILE_IGNORE_NEW_LINES);
+?>
+
+<!DOCTYPE html>
+<html>
+<head><title>Group A Guestbook</title></head>
+<body>
+  <h1>Group A Guestbook</h1>
+  <form method="POST">
+    <input name="name" placeholder="Name" required>
+    <input name="message" placeholder="Message" required>
+    <button type="submit">Send</button>
+  </form>
+
+  <h2>Messages</h2>
+  <ul>
+    <?php foreach ($messages as $msg): ?>
+      <li><?= $msg ?></li> <!-- ❌ vulnerable -->
+    <?php endforeach; ?>
+  </ul>
+</body>
+</html>
+
+📁 Group B: groupB_board.php
+
+<?php
+session_start();
+if (!isset($_SESSION['messages'])) {
+    $_SESSION['messages'] = [];
+}
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $_SESSION['messages'][] = [
+        'author' => $_POST['author'],
+        'text' => $_POST['text']
+    ];
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head><title>Group B Board</title></head>
+<body>
+  <h1>Group B Message Board</h1>
+  <form method="POST">
+    <input name="author" placeholder="Name" required><br>
+    <textarea name="text" placeholder="Message" required></textarea><br>
+    <button type="submit">Post</button>
+  </form>
+
+  <h2>Messages</h2>
+  <div>
+    <?php foreach ($_SESSION['messages'] as $msg): ?>
+      <p><strong><?= $msg['author'] ?>:</strong> <?= $msg['text'] ?></p> <!-- ❌ vulnerable -->
+    <?php endforeach; ?>
+  </div>
+</body>
+</html>
+
+Phase 2 – 💥 Attack the Opponent’s Website
+
+Exchange links to your vulnerable websites. Write down on paper the URL of your website. Put it on the desk, so the attacker (opponent group) can see.
+
+Now your team becomes the attacker on the opposing team’s site. Try to inject malicious JavaScript using the form.
+🎯 Your goal:
+
+    Inject a script that executes on page load
+
+    Demonstrate the impact (e.g. alerts, DOM changes)
+
+💣 Hints: Try these payloads:
+
+<script>alert('XSS!')</script>
+
+<img src=x onerror="alert('Image hacked!')">
+
+<script>document.body.style.background='pink'</script>
+
+<script>alert(document.cookie)</script>
+
+    ✅ Tip: Open DevTools (F12) and watch the console or DOM changes.
+
+🎉 Keep track of which payloads successfully execute!
+You may need to do some online research for this activity.
+
+Phase 3 – 🛡️ Fix Your Site
+
+Now switch back to your own site and defend it!
+
+Update your PHP to properly sanitize output using htmlspecialchars():
+
+<?= htmlspecialchars($msg, ENT_QUOTES, 'UTF-8') ?>
+
+Or, for arrays:
+
+<?= htmlspecialchars($msg['author'], ENT_QUOTES, 'UTF-8') ?>
+<?= htmlspecialchars($msg['text'], ENT_QUOTES, 'UTF-8') ?>
+
+Retest the attacks — if your defenses are working, injected code should be shown as text, not executed.
+
+Have fun and learn by doing/breaking/fixing!
+
+---

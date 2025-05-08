@@ -1,0 +1,148 @@
+--> Activity 1: Client-side page
+
+Complete the following HTML code to display a web form similar to the one of the figure (see PDF on BB). Save the file as 'popcorn.html'. Consider adding embedded CSS styling for borders, colors (optional), fonts (optional), etc.
+
+<!DOCTYPE html>
+<!-- popcorn.html describes the popcorn sales form     -->
+
+<html lang = "en">
+	<head>
+		<title> Popcorn Sales - for PHP handling </title>
+		<meta charset = "utf-8" />
+	</head>
+	<body>
+		<form action = "popcorn.php" method = "post">
+      				<table>
+	      					<!-- add the tr, td elements as and input controls as needed -->
+      				</table>
+
+
+			      <table>
+				      <!-- add the th, tr, td elements as needed -->
+			      </table>
+
+
+      		<h3> Payment Method </h3>
+
+	      <!-- add the input controls as needed -->
+
+    </form>
+
+  </body>
+</html>
+
+--> Activity 2: Server-side processing (related to Activity 1) 
+
+Type the following code in your text editor and save it as "popcorn.php":
+
+<!DOCTYPE html>
+<!-- popcorn.php - Processes the form described in popcorn.html -->
+<html lang = "en">
+  <head>
+    <title> Process the popcorn.html form </title>
+    <meta charset = "utf-8" />
+    <style type = "text/css">
+      td, th, table {border: thin solid blue;}
+    </style>
+  </head>
+  <body>
+    <?php
+
+      // Get form data values
+
+      $unpop = $_POST["unpop"];
+      $caramel = $_POST["caramel"];
+      $caramelnut = $_POST["caramelnut"];
+      $toffeynut = $_POST["toffeynut"];
+      $name = $_POST["name"];
+      $street = $_POST["street"];
+      $city = $_POST["city"];
+      $payment = $_POST["payment"];
+
+      // If any of the quantities are blank, set them to zero
+
+      if ($unpop == "") $unpop = 0;
+      if ($caramel == "") $caramel = 0;
+      if ($caramelnut == "") $caramelnut = 0;
+      if ($toffeynut == "") $toffeynut = 0;
+
+      // Compute the item costs and total cost
+
+      $unpop_cost = 3.0 * $unpop;
+      $caramel_cost = 3.5 * $caramel;
+      $caramelnut_cost = 4.5 * $caramelnut;
+      $toffeynut_cost = 5.0 * $toffeynut;
+      $total_price = $unpop_cost + $caramel_cost + $caramelnut_cost + $toffeynut_cost;
+      $total_items = $unpop + $caramel + $caramelnut + $toffeynut;
+
+      // Return the results to the browser in a table
+
+    ?>
+    <h4> Customer: </h4>
+    <?php
+      print ("$name <br /> $street <br /> $city <br />");
+    ?>
+
+    <table>
+      <caption> Order Information </caption>
+      <tr>
+        <th> Product </th>
+        <th> Unit Price </th>
+        <th> Quantity Ordered </th>
+        <th> Item Cost </th>
+      </tr>
+      <tr align = "center">
+        <td> Unpopped Popcorn </td>
+        <td> $3.00 </td>
+        <td> <?php print ("$unpop"); ?> </td>
+        <td> <?php printf ("$ %4.2f", $unpop_cost); ?>
+        </td>
+      </tr>
+      <tr align = "center">
+        <td> Caramel Popcorn </td>
+        <td> $3.50 </td>
+        <td> <?php print ("$caramel"); ?> </td>
+        <td> <?php printf ("$ %4.2f", $caramel_cost); ?>
+        </td>
+        </tr>
+      <tr align = "center">
+        <td> Caramel Nut Popcorn </td>
+        <td> $4.50 </td>
+        <td> <?php print ("$caramelnut"); ?> </td>
+        <td> <?php printf ("$ %4.2f", $caramelnut_cost); ?>
+        </td>
+      </tr>
+      <tr align = "center">
+        <td> Toffey Nut Popcorn </td>
+        <td> $5.00 </td>
+        <td> <?php print ("$toffeynut"); ?> </td>
+        <td> <?php printf ("$ %4.2f", $toffeynut_cost); ?>
+        </td>
+      </tr>
+    </table>
+
+    <?php
+      print ("You ordered $total_items popcorn items <br />");
+      printf ("Your total bill is: $ %5.2f <br />", $total_price);
+      print ("Your chosen method of payment is: $payment <br />");
+    ?>
+  </body>
+</html>
+
+Open 'popcorn.html' in your browser and check if the information is received and processed correctly in the PHP script by observing the output.
+
+*Acknowledgment: Example from "Programming the World Wide Web" (Sebesta)
+
+--> Activity 3: PHP Basics additional activities, if time permits or to complete at home
+
+1. Write PHP code to print out the following text:
+
+"But all those souls grace the Empyrean;
+and each of them has gentle life though some
+sense the Eternal Spirit more, some less."
+
+2. Create an HTML/PHP webpage to compute the sum of two numbers given in input by the user.
+
+3. Create an HTML/PHP page to generate the multiplication table for numbers 0-10. The table should be visualized as a matrix in which the value of the element in position (i, j) is equal to (i * j).
+
+---

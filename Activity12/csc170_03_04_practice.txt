@@ -1,0 +1,114 @@
+--> Activity 1
+
+You will code a form in this activity. To get started, launch a text editor and type the code below. Save the file as 'form1.html'. 
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Page Title Goes Here</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+
+	</body>
+</html>
+
+Modify the title element to display the text "Form Example".﻿ Configure an <h1> element with the text “Join Our Newsletter”. You are ready to configure the form area. A form begins with the <form> element. Insert a blank line under the heading you just added and type in a tag as follows:
+
+<form method="get">
+
+To create the form control for the visitor’s e-mail address to be entered, type the following code on a blank line below the form element:
+
+E-mail: <input type="text" name="email" id="email"> <br><br>
+
+
+This places the text “E-mail:” in front of the text box used to enter the visitor’s e-mail address. The input element has a 'type' attribute with the value of 'text' that causes the browser to display a text box. The  attribute assigns the name 'email' to the information entered into the text box and could be used by server-side processing. The  attribute uniquely identifies the element on the page. ﻿Now you are ready to add the submit button to the form on the next line. Add a value attribute set to "Sign Me Up!":
+
+<input type="submit" value="Sign Me Up!">
+
+This causes the browser to display a button with “Sign Me Up!” instead of the default value of “Submit Query”.﻿ Add a blank space after the submit button and code a reset button:
+
+<input type="reset">
+
+Next, code the closing form tag:
+
+</form>
+
+Save 'form1.html' and test your web page in a browser. Try entering some information into your form. Try clicking the submit button. Don't worry if the form redisplays but nothing seems to happen when you click the button—you haven't configured this form to work with any server-side processing. Connecting forms to server-side processing is demonstrated later in the course.
+
+--> Activity 2
+
+In this activity, you will create a contact form with the following form controls: a First Name text box, a Last Name text box, an E-mail text box, and a Comments scrolling text box. You'll use the form you created in activity 1 as a starting point. Launch a text editor and type the code below. Add the appropriate form controls. Save the file as 'form2.html'.
+
+<!DOCTYPE html>  
+<html lang="en">
+	<head>
+		<title>Form Example</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<h1>Join Our Newsletter</h1>
+		<form method="get">
+			...
+		</form>
+	</body>
+</html>
+
+Modify the <title> element to display the text “Contact Form”. Configure the​ <h1> ​element with the text "Contact Us". Now you need to add text box form controls for the first name and last name above the e-mail form control.
+
+Now you are ready to add the scrolling text box form control to the form using a <textarea> element on a new line below the e-mail form control.
+
+Save your file and display your web page in a browser to view the default display of a scrolling text box. Note that this default display will differ by browser.
+
+Now configure the text area with 4 rows and 40 columns by setting the 'rows' and 'cols' attributes of <textarea>.
+
+Next, modify the text displayed on the submit button. Set the value attribute to "Contact". Save 'form2.html' and test your web page in a browser. 
+Try entering some information into your form. Try clicking the submit button. Don't worry if the form redisplays but nothing seems to happen when you click the button—you haven't configured this form to work with any server-side processing. Connecting forms to  server-side processing is demonstrated later in the course.
+
+--> Activity 3
+
+In this activity, you will add the <label> element to the text box and scrolling text area form controls on the form you created in activity 2. Save the file you created in Activity 2 as 'form3.html'. Launch a text editor and open the file.
+
+1. Locate the text box for the first name. Add a label element to wrap around the input tag as follows:
+
+<label>First Name: <input type="text" name="fname" id="fname"></label>
+
+2. In a similar manner, add a label element for the last name and the e-mail form controls.
+
+3. Configure a label element to contain the text "Comments". Associate the label with the scrolling text box form control.
+
+Save form3.html and test your web page in a browser. 
+Try entering some information into your form. Try clicking the submit button.
+Don't worry if the form redisplays but nothing seems to happen when you click the button—
+you haven’t configured this form to work with any server-side processing. Connecting
+forms to server-side processing is demonstrated later in the course.
+
+--> Activity 4
+
+In this activity, you will modify the contact form 'form3.html' to use the 'fieldset' and 'legend' elements.
+Launch a text editor and open your 'form3.html'. Save the file as 'form4.html'. Apply the following changes:
+
+1. Add an opening <fieldset> tag after the opening <form> tag.
+2. Immediately after the opening <fieldset> tag, code a legend element that contains the following text: "Customer Information".
+
+3. Code the closing </fieldset> tag before the label element for the Comments scrolling text box.
+
+4. Save your file and test your web page in a browser. You may notice that when you activate the 
+submit button, the form redisplays. This is because there is no action property in the form element.
+
+5. How about a quick preview of styling a form with CSS?
+
+Open 'form4.html' in a text editor and add embedded styles to the head section as indicated below:
+
+fieldset { 	width: 320px;
+ 		border: 2px ridge #ff0000;
+ 		padding: 10px;
+	 	margin-bottom: 10px; 
+}
+
+legend { 	font-family: Georgia, "Times New Roman", serif; font-weight: bold; }
+label { 	font-family: Arial, sans-serif; }
+
+Save your file as 'form5.html' and test your web page in a browser.
+
+---

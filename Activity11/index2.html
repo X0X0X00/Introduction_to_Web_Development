@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Lighthouse Bistro</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: Verdana, Arial, sans-serif;
+    background-color: #ffffff;
+}
+
+#wrapper {
+    background-color: #B3C7E6;
+    margin: 0 auto;
+    padding: 0;
+    display: grid;
+    grid-template:
+        "header" 
+        "nav" 
+        "main" 
+        "aside" 
+        "footer";
+}
+
+header {
+    color: #00005D;
+    background-color: #869DC7;
+    background-image: url(light.gif);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    padding: .5em 0 .5em 5.5em;
+    text-align: center;
+    grid-area: header;
+}
+
+nav {
+    grid-area: nav;
+}
+
+nav ul {
+    list-style-type: none;
+    padding-left: 0;
+    border-top: 1px solid #EEEEEE;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+nav li {
+    border-bottom: 1px solid #EEEEEE;
+    text-align: center;
+    padding: .5em;
+}
+
+nav a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:link {
+    color: #00005D;
+}
+
+nav a:hover {
+    color: #FF0000;
+}
+
+nav #page {
+    font-weight: bold;
+    color: #FEFEFE;
+}
+
+main {
+    background-color: #FFFFFF;
+    color: #000000;
+    padding: 1em;
+    grid-area: main;
+}
+
+aside {
+    text-align: center;
+    grid-area: aside;
+}
+
+footer {
+    background-color: #869DC7;
+    font-size: 70%;
+    text-align: center;
+    padding: 0.5em 0;
+    clear: both;
+    grid-area: footer;
+}
+
+h2 {
+    color: #869DC7;
+}
+
+img {
+    padding: 1em;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Medium Display */
+@media (min-width: 600px) {
+    nav ul {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+    }
+    nav li {
+        border-bottom: none;
+    }
+    #wrapper {
+        display: grid;
+        grid-template:
+            "header header" 
+            "nav nav" 
+            "main aside" 
+            "footer footer" / 55% auto;
+    }
+}
+
+/* Large Display */
+@media (min-width: 1024px) {
+    body {
+        background-color: #000066;
+    }
+    nav ul {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+    #wrapper {
+        width: 80%;
+        margin: 0 auto;
+        max-width: 1200px;
+        display: grid;
+        grid-template:
+            "header header header" 
+            "nav main aside" 
+            "footer footer footer" / 150px auto auto;
+    }
+}
+</style>
+</head>
+<body>
+<div id="wrapper">
+  <header>
+    <h1>Lighthouse Bistro</h1>
+  </header>
+  <nav>
+    <ul>
+      <li id="page">Home</li>
+      <li><a href="rooms.html">Menu</a></li>
+      <li><a href="directions.html">Directions</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <main>
+    <h2>Locally Roasted Coffee</h2>
+    <p>Indulge in the aroma of freshly ground roast free-trade coffee. Specialty drinks are available hot or cold.</p>
+    <h2>Specialty Pastries</h2>
+    <p>Enjoy a selection of our fresh-baked, organic pastries, including fresh-fruit muffins, scones, croissants, and cinnamon rolls.</p>
+    <h2>Lunchtime is Anytime</h2>
+    <p>Savor delicious wraps and sandwiches on hearty, whole-grain breads with locally-grown salad, fruit, and vegetables.</p>
+    <h2>Panoramic View</h2>
+    <p>Take in some scenery! The top of our lighthouse offers a panoramic view of the countryside. Challenge your friends to climb our 100-stair tower.</p>
+  </main>
+  <aside>
+    <figure>
+      <img src="lighthouse.jpg" width="250" height="355" alt="Lighthouse Island">
+    </figure>
+  </aside>
+  <footer>
+    Copyright &copy; 2020
+  </footer>
+</div>
+</body>
+</html>

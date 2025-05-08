@@ -1,0 +1,96 @@
+INSTRUCTIONS
+
+- You are not allowed to use AI tools to get solutions. However, searching Google for specific functions or syntax is *OK* and encouraged in order to get this activity done.
+- Show your progress to the TA. You will get the points if you show some effort in completing each task.
+
+---
+
+Task 1:
+
+    Declare three variables:
+        studentName (a string to store a student's name)
+        studentAge (a number to store the student's age)
+        studentGrades (an empty array to store the student's test scores)
+
+    Prompt the user for their name and age using the prompt() function, and store the values in the corresponding variables.
+
+    Print the following message to the console:
+    "Student's name is [studentName] and they are [studentAge] years old."
+
+---
+
+Task 2:
+
+    Prompt the user to enter 5 test scores, one at a time. Store each score in the studentGrades array.
+    After all the scores are entered, print the entire array to the console.
+
+Complete the following code for Task 2:
+
+let studentGrades = [];
+
+// add your code here
+
+console.log("Student Grades:", studentGrades);
+
+---
+
+Task 3:
+
+    Write a function calculateAverage() that takes the studentGrades array as input and returns the average score.
+    After calculating the average, print it to the console in this format:
+    "The average score is [averageScore]."
+
+Complete the following code for Task 3:
+
+function calculateAverage(grades) {
+	// add your own code here
+}
+
+let averageScore = calculateAverage(studentGrades);
+console.log(`The average score is ${averageScore}.`);
+
+---
+
+Task 4:
+
+    Write two functions: findHighestScore() and findLowestScore().
+        findHighestScore() should return the highest score in the studentGrades array.
+        findLowestScore() should return the lowest score in the array.
+
+    Print both the highest and lowest scores to the console in the following format:
+    "The highest score is [highestScore]."
+    "The lowest score is [lowestScore]."
+
+Complete the following code for Task 4:
+
+function findHighestScore(grades) {
+	// add your own code here
+}
+
+function findLowestScore(grades) {
+ // add your own code here
+}
+
+let highestScore = findHighestScore(studentGrades);
+let lowestScore = findLowestScore(studentGrades);
+
+console.log(`The highest score is ${highestScore}.`);
+console.log(`The lowest score is ${lowestScore}.`);
+
+---
+
+Bonus Task:
+
+    Write a function called gradeAnalysis() that analyzes the student's grades.
+        If the average score is 90 or above, print "Excellent performance!"
+        If the average score is between 70 and 89, print "Good performance!"
+        If the average score is below 70, print "Needs improvement!"
+
+---
+
+Final Notes:
+
+    Test your code after each part to ensure that it works correctly.
+    Hint: Break each problem into smaller steps and solve them one by one.
+    Optional: Try to complete the bonus task if you finish early!
+

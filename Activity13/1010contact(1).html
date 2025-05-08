@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Comment Form</title>
+
+<meta charset="utf-8">
+</head>
+<style>
+	 <style>
+    /* Form element selector styles */
+    form {
+        min-width: 400px; /* Minimum width for the form */
+    }
+
+    /* Label element selector styles */
+    label {
+        width: 150px; /* Width for the label elements */
+        display: inline-block; /* Ensure labels are properly aligned */
+    }
+
+    /* Submit button (#mySubmit) styles */
+    #mySubmit {
+        margin-left: 160px; /* Left margin for the submit button */
+    }
+</style>
+
+   </style>
+<body>
+<h1>Send Us Your Comments</h1>
+<p>Required fields are marked with an asterisk *</p>
+
+<form>
+<label for="name">Name: <span>*</span></label>
+<input type="text" id="name" name="name" placeholder="Enter your name" required><br><br>
+
+<label for="email">E-mail: <span>*</span></label>
+<input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
+
+<label for="comments">Comments: <span>*</span></label>
+<textarea id="comments" name="comments" placeholder="Enter your comments" required></textarea><br><br>
+
+<label for="rating">Rating (1-10):</label>
+<input type="range" id="rating" name="rating" min="1" max="10"><br><br>
+
+<input type="submit" id="mySubmit" value="Submit">
+
+
+</form>
+</body>
+</html>

@@ -1,0 +1,220 @@
+--> Activity 1
+
+Objective: You will explore the box model and normal flow in this activity.
+
+Step 1: Launch a text editor and type the following code:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS</title>
+<meta charset="utf-8">
+<style>
+
+</style>
+</head>
+<body>
+  
+<p>Copyright &copy; 2020 Your Name Here</p>
+</body>
+</html>
+
+Save the file with the name 'box1.html'. Edit the <body> section of the web page and add the following code to configure two div elements:
+
+<div class="div1">
+	This is the first box.
+</div>
+<div class="div2">
+	This is the second box.
+</div>
+
+Now let’s add embedded CSS in the <head> section to configure the "boxes." Add a new style rule for a class named 'div1' to configure a 
+light-blue background, dashed border, width of 200 pixels, height of 200 pixels, and 5 pixels of padding. The code is 
+
+.div1 	{ 	width: 200px;
+		height: 200px;
+		background-color: #D1ECFF;
+		border: 3px dashed #000000;
+		padding: 5px; 
+}
+
+Create a style rule for a class named 'div2' to configure a width and height of 100 pixels, white background color, 
+ridged border, 10 pixel margin, and 5 pixels of padding. The code is
+
+.div2 	{ 	width: 100px;
+		height: 100px;
+		background-color: #ffffff;
+		border: 3px ridge #000000;
+		margin: 10px;
+		padding: 5px; 
+}
+
+Save the file. Launch a browser and test your page.
+
+
+Step 2: Launch a text editor and open your 'box1.html' file. Save the file as 'box2.html'.
+
+Edit the code. Delete the content from the <body> section of the web page. Add the following code to configure two div elements—one nested inside the other.
+
+<div class="div1">
+	This is the outer box.
+	<div class="div2">
+		This is the inner box.
+	</div>
+</div>
+
+Save the file. Launch a browser and test your page. Notice how the browser renders the nested div elements: 
+The second box is nested inside the first box because it is coded inside the first div element in the web page source code. 
+This is an example of normal flow. The examples in this activity happened to use two div elements. However, 
+the box model applies to block display HTML elements in general, not just to div elements. 
+
+
+--> Activity 2 
+
+Objective: In this activity, you'll practice with the CSS 'float' property.
+
+Create a folder named 'float'. Download 'yls.jpg' from BB. Launch a text editor and type the following code:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Float</title>
+<meta charset="utf-8">
+<style>
+	body {
+		width: 500px;
+		background-color: #FFFFFF;
+		color: #000000;
+	}
+	div {
+		background-color: #F3F1BF;
+	}
+	h1 {   
+		background-color: #658B42;
+		padding: 10px;	
+		color: #E1DB5F;
+	}
+	p {    
+		font-family: Arial,sans-serif;  
+	}
+</style>
+</head>
+	<body>
+		<h1>Yellow Lady Slipper</h1>
+		<div>
+			<img src="yls.jpg" alt="Yellow Lady Slipper" height="100" width="100">
+			<p>The Yellow Lady Slipper grows in wooded areas and blooms in June each year. The flower is a member of the orchid family.</p>
+		</div>
+		<h2>Be Green When Enjoying Wildflowers</h2>
+		<p>Enjoy wild plants in their native surroundings. Protect their environment in all possible ways &mdash; support organizations 
+		dedicated to preserving their habitat. </p> 
+	</body>
+</html>
+
+Notice the order of the images and paragraphs. Note that there is no CSS configuration for floating the images. Save the file as 'index.html' 
+in your 'float' folder and test it in a browser. The browser renders the page using normal flow and displays the HTML elements in the order they are coded.
+
+Let’s add CSS to float the image. Modify the code as follows:
+
+Step 3: Add a style rule for a class name float that configures float, margin, and border properties.
+
+.float 	{ 	float: left;
+		margin-right: 10px;
+		border: 3px ridge #000000; 
+	}
+
+Assign the image element to the class named 'float'.
+
+Save the file. Launch a browser and test your page.
+
+Take a moment to examine your file in a browser and consider how the browser rendered the page. The <div> element is configured with a light 
+background color to demonstrate how floated elements are rendered outside of normal flow.
+
+Observe that the image and the first paragraph are contained within the div element. The h2 element follows the div. If all the elements were 
+rendered using normal flow, the area with the light background color would contain both child elements of the div: the image and the first paragraph.
+In addition, the h2 element would be placed on its own line under the div element.
+
+However, once the image is placed vertically on the page, it is floated outside of normal flow—that's why the light background color only 
+appears behind the first paragraph and why the h2 element’s text begins immediately after the first paragraph and appears next to the floated image. 
+
+--> Activity 3
+
+Objective: In this activity you will practice with using the clear float setting.
+
+A common technique to clear a float within a container element is to add a line break element configured with the 'clear' property.
+
+Step 4: Modify your 'index.html' to add a CSS class configured to clear the left float:
+	
+	.clearleft { clear: left; }
+
+Add a line break tag with class name “clearleft” in the HTML code right before the closing <div> tag. This will fix the issue. 
+
+An alternative solution is to add an overflow:auto; rule to the CSS for the div element.
+
+Test both solutions 1 and 2 and notice the differences with the webpage you coded in Activity 2.
+
+--> Activity 4
+
+Objective: In this activity you will practice with image maps.
+
+Step 1: Create the HTML File
+
+Create a new HTML file named 'imagemap.html' and type the following code:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Interactive Continent Map</title>
+</head>
+<body>
+    <h1>Explore the Continents</h1>
+    <p>Click on different continents to learn more.</p>
+    
+    <img src="continents.jpg" alt="World Continents Map" usemap="#continentmap" width="600" height="400">
+
+    <map name="continentmap">
+        <!-- Example areas -->
+        <area shape="rect" coords="50,50,150,150" href="https://en.wikipedia.org/wiki/North_America" alt="North America">
+        <area shape="circle" coords="300,200,50" href="https://en.wikipedia.org/wiki/Europe" alt="Europe">
+    </map>
+</body>
+</html>
+
+Step 2: Understanding the Code
+
+    The <img> tag includes the usemap attribute, linking the image to the <map> element.
+    The <map> element defines clickable regions.
+    The <area> elements specify interactive zones with different shapes:
+        Rectangle (shape="rect") for North America.
+        Circle (shape="circle") for Europe.
+
+Step 3: Add Areas for All Continents
+
+    Open 'continents.jpg' in an image editor (MS Paint, Photoshop, or GIMP).
+    Find the coordinates of each continent by moving your cursor over the image and noting the X, Y positions.
+    Modify imagemap.html by adding an <area> tag for each continent.
+        Use shape="rect" for rectangular regions.
+        Use shape="circle" for circular regions.
+        Use shape="poly" for irregular shapes.
+
+Example for Africa (replace with correct coordinates):
+
+<area shape="poly" coords="400,300,500,250,550,350,450,400" href="https://en.wikipedia.org/wiki/Africa" alt="Africa">
+
+Step 4: Test Your Image Map
+
+    Save imagemap.html in the same folder as continents.jpg.
+    Open imagemap.html in a web browser.
+    Click on different areas and confirm they navigate to the correct Wikipedia page.
+
+Step 5: Experiment and Improve
+
+    Adjust the coordinates to better match the continent shapes.
+    Change the links to different educational resources.
+    Try creating an image map with different themes (e.g., countries, landmarks).
+
+Include one <area> for each continent. Feel free to choose a shape and coordinates of your choice for each continent, but try to keep 
+it as realistic as possible :-)
+
+--

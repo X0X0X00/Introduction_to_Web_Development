@@ -1,0 +1,316 @@
+/* ===== 全局样式 ===== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;  /* 白色背景 */
+    color: black;               /* 黑色文字 */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* 链接颜色 */
+a {
+    color: #005fa3;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* ===== 容器布局 ===== */
+.container,
+.layout-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ===== Banner（页眉）样式 ===== */
+.site-header {
+    background-color: #f2f6ff;
+    color: #003f8c;
+    padding: 20px 0;
+    border-bottom: 2px solid #005fa3;
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.text-group {
+    text-align: left;
+}
+
+.site-title {
+    margin: 0;
+    font-size: 2.2rem;
+    font-weight: bold;
+}
+
+.site-tagline {
+    margin: 5px 0 0;
+    font-size: 1rem;
+    font-style: italic;
+    color: #007acc;
+}
+
+
+/* ===== 导航栏 ===== */
+nav.sidebar {
+    background-color: #ffffff;
+    padding: 20px;
+    border-bottom: 3px solid #005fa3;
+}
+nav.sidebar a {
+    display: block;
+    padding: 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #003f8c;
+}
+nav.sidebar a:hover,
+nav.sidebar a.is-current {
+    background-color: #005fa3;
+    color: #ffffff;
+}
+
+/* ===== 主内容区 ===== */
+main.content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-left: 2px solid #005fa3;
+}
+main.content h1,
+main.content h2,
+main.content h3 {
+    color: #005fa3;
+    margin-top: 0;
+}
+
+/* ===== 表格样式 ===== */
+table.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(0, 95, 163, 0.1); /* 美观阴影 */
+}
+table.data-table th,
+table.data-table td {
+    border: 1px solid #005fa3;
+    padding: 12px;
+    text-align: left;
+    font-size: 0.95rem;
+}
+table.data-table th {
+    background-color: #005fa3;
+    color: #ffffff;
+}
+table.data-table tr:nth-child(even) {
+    background-color: #f2faff;
+}
+
+/* ===== 图片响应式 ===== */
+img,
+.img-responsive {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 8px;        /* 圆角美观 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== 轮播图 ===== */
+.slideshow {
+    position: relative;
+    width: 100%;
+    max-width: 800px;         /* 最大宽度限制 */
+    margin: 0 auto 20px;      /* 居中对齐 + 下边距 */
+    overflow: hidden;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.slideshow img {
+    width: 100%;
+    max-height: 400px;       /* 限制图片最大高度 */
+    object-fit: cover;       /* 自动裁切填满容器 */
+    display: none;
+    border-radius: 10px;
+}
+
+.slideshow img.active {
+    display: block;
+}
+
+
+/* ===== 页脚 ===== */
+footer {
+    background-color: #f2f6ff;
+    color: #003f8c;
+    text-align: center;
+    padding: 20px 0;
+    border-top: 2px solid #005fa3;
+}
+
+
+/* ===== 横向主菜单导航 ===== */
+nav.menu {
+    background-color: #005fa3;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+nav.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav.menu li {
+    margin: 0;
+}
+
+nav.menu a {
+    display: block;
+    padding: 15px 25px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+nav.menu a:hover {
+    background-color: #003f7d;
+}
+
+nav.menu a.current {
+    background-color: #ffa500;
+    color: black;
+    border-bottom: 4px solid white;
+}
+
+/* ===== 图片左浮动样式 ===== */
+.float-left {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== 表格标题与内容加粗 ===== */
+table.data-table th,
+table.data-table td {
+    font-weight: bold;
+}
+
+/* ===== 段落与标题排版优化 ===== */
+main.content p,
+section.excerpts p,
+article p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+main.content h2,
+section.excerpts h2,
+article h2 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* ===== 统一内容区字体颜色 ===== */
+main.content,
+section.excerpts,
+article {
+    color: #003f8c;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0;
+    font-size: 0.95em;
+    background-color: #fff;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.03);
+}
+
+.data-table caption {
+    caption-side: top;
+    font-weight: bold;
+    font-size: 1em;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.data-table thead tr {
+    background-color: #0077cc;
+    color: #ffffff;
+    text-align: left;
+}
+
+.data-table th, .data-table td {
+    padding: 12px 15px;
+    border: 1px solid #dddddd;
+}
+
+.data-table tbody tr:nth-child(even) {
+    background-color: #f3f3f3;
+}
+
+.data-table tbody tr:hover {
+    background-color: #e6f2ff;
+    transition: 
+    background-color 0.2s ease-in-out;
+}
+
+
+/* Table Styling */
+.table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #003f8c;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}

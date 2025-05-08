@@ -1,0 +1,442 @@
+(*) Note: Some of the activities may require some research from you 
+to complete. Feel free to use lecture notes or other sources for this.
+
+--> Activity 1
+
+You'll practice a Mobile First strategy for responsive design in 
+this activity. First, you will configure a page layout that works 
+well in smartphones (test with a small browser window). Then you'll 
+resize the browser viewport to be larger until the design "breaks"
+and code media queries and additional CSS as appropriate using 
+traditional float layout techniques.
+
+1. Create a new folder called 'responsive'. Type the following 
+code and save it as 'index.html':
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Lighthouse Bistro</title>
+<meta charset="utf-8">
+<style>
+* { box-sizing: border-box;
+    margin: 0;
+}
+
+body {font-family: Verdana, Arial, sans-serif;
+}
+ 
+#wrapper { background-color:  #B3C7E6; 
+}
+
+header { color: #00005D; 
+        background-color: #869DC7;
+		background-image: url(light.gif);
+	    background-repeat: no-repeat;		
+		background-size: auto 100%;
+        padding: .5em 0 .5em 5.5em;
+}
+main {   background-color: #FFFFFF;
+         color: #000000;
+	     padding: 1em; 
+}
+aside { text-align: center; }
+
+footer {  background-color: #869DC7;
+         font-size:70%;
+         text-align: center;
+         padding: 0.5em 0;
+}
+
+h2 { color: #869DC7; }
+img { padding: 1em; }
+
+/* Styles to configure navigation links as horizontal areas */
+nav ul { list-style-type: none;
+         padding-left: 0; 
+		 border-top: 1px solid #EEEEEE;
+}
+nav li { border-bottom: 1px solid #EEEEEE;  
+         text-align: center;
+		 padding-top: .5em;
+		 padding-bottom: .5em;
+}
+nav a { text-decoration: none;
+		font-weight: bold;
+}
+nav a:link { color: #00005D; }
+nav a:hover { color: #FF0000; }
+
+/* make the current page's link look different */
+nav #page { font-weight: bold;
+            color: #FEFEFE; }
+
+
+/* Force older versions of Internet Explorer to display these 
+HTML5 elements with block display. */
+
+header, nav, main, footer, aside, figure { display: block; }
+
+</style> 
+</head>
+<body>
+<div id="wrapper">
+  <header>
+    <h1>Lighthouse Bistro</h1>
+  </header>
+    <nav>
+	<ul>
+      <li id="page">Home</li>
+      <li><a href="rooms.html">Menu</a></li>
+      <li><a href="directions.html">Directions</a></li>
+      <li><a href="contact.html">Contact</a></li>
+	 </ul>
+    </nav>
+  <main>
+ 	<h2>Locally Roasted Coffee</h2>
+    <p>Indulge in the aroma of freshly ground roast free-trade coffee. Specialty drinks are available hot or cold.</p>
+    <h2>Specialty Pastries</h2>
+    <p>Enjoy a selection of our fresh-baked, organic pastries, including 
+  fresh-fruit muffins, scones, croissants, and cinnamon rolls.</p>
+  	<h2>Lunchtime is Anytime</h2>
+    <p>Savor delicious wraps and sandwiches on hearty, whole-grain breads with locally-grown salad, fruit, and vegetables. </p>
+    <h2>Panoramic View</h2>
+	<p>Take in some scenery! The top of our lighthouse offers a panoramic view of the countryside. Challenge your friends to climb our 100-stair tower.</p> 
+  </main>
+   <aside>
+    <figure>
+    <img src="lighthouse.jpg" width="250" height="355" alt="Lighthouse Island">
+    </figure>
+  </aside> 
+  <footer>
+	Copyright &copy; 2020
+  </footer>
+ </div>
+</body>
+</html>
+
+2. Save the 'lighthouse.jpg' and 'light.gif' files from BB into your 
+newly created folder. Notice that a <div> assigned to the 'wrapper' 
+id has child elements of <header>, <nav>, <main>, <aside>, and <footer>.
+
+Observe the CSS and note the 'wrapper' id's child elements (header, 
+nav, main, aside, and footer) do not have the 'float' property 
+associated with them. Browsers render this page using normal flow 
+with each element displayed under the preceding element. Notice also 
+that there are no minimum widths assigned. This layout will work well 
+on a small display such as a smartphone.
+
+3. Open your 'index.html' file in a desktop browser. If your browser 
+viewport is a typical size, it will look a bit awkward. Don't worry 
+though, we intend this layout to be displayed on narrow mobile screens—so 
+resize your browser to be narrower. This will simulate the mobile display.
+
+4. There is one more item needed for a more pleasing and usable display 
+on an actual mobile device: the viewport meta tag. Launch a text editor 
+and open 'index.html'. Add a viewport meta tag in the head section of 
+the document below the meta tag. The HTML follows:
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+In the past, web developers would try to target specific devices 
+(such as smartphone and tablet). However, the modern process is to 
+determine the condition for the media query by widening the browser 
+until the display begins to "break" or look awkward. Display your 
+'index.html' file in a browser—first narrow it and then gradually 
+widen it. The point where it starts to seem awkward is around 600px 
+wide, so that's what we'll code for our media query.
+
+You'll configure the layout to follow a medium-sized display wireframe: 
+horizontal header, horizontal navigation, adjacent main and aside 
+elements, and horizontal footer.
+
+5. Launch a text editor and open 'index.html'. Code a CSS media query 
+after the other style rules to change the display when the min-width of 
+the viewport is at least 600px. Add style rules within the media query 
+that will create a horizontal navigation area with 'inline-block' 
+display, width, padding, centered text, and no border; configure 
+the main element selector with a left float and a width of 55%, set 
+a 55% left margin for the aside element selector, and configure the f
+ooter element selector to clear floats. Complete the following CSS 
+accordingly and append it to the styling of your 'index.html' file:
+
+/* Medium Display */
+@media (min-width: ...) {
+ nav li { display: ...;
+          width: 7em;
+          padding: 0.5em;
+		  border: ...; 
+         }
+ nav ul { text-align: center; }
+ main { float:...;
+        width: 55%; }
+ footer { ... }
+ aside { margin-left: 55%; }
+}
+
+Save the file and launch it in a browser. You should be able to see how 
+the wireframe changes when you resize your browser viewport.
+
+6. Repeat the process to determine the condition for the next breakpoint.
+When displayed in a browser, the web page seems to be a bit awkward around
+1024px, so that's what you'll code for in the next media query. 
+Configure the layout to follow a large display wireframe: horizontal 
+header; adjacent nav, main and aside elements; and horizontal footer.
+
+7. Launch a text editor and open 'index.html'. Code a CSS media query 
+after the other style rules to change the display when the min-width of 
+the viewport is at least 1024px. Add style rules within the media query 
+that will set left float for the nav element, a centered 'wrapper' id 
+with 80% width and 1200px maximum width, and a #000066 background 
+color for the body element selector. Write the CSS styling accordingly 
+and append it to your 'index.html' style section.
+
+Save the file and test it in a browser. You should be able to notice how 
+the wireframe of the page changes when you resize the browser's viewport.
+
+
+--> Activity 2
+
+You'll practice a Mobile First strategy for responsive design using grid layout and media queries in this activity. First, you will configure a page layout that works well in smartphones (test with a small browser window). Then you'll resize the browser viewport to be larger until the design "breaks" and code media queries and additional CSS as appropriate using grid layout for the page and flexbox layout for the navigation area.
+
+1. Create a new folder called 'responsive2'. Save the 'lighthouse.jpg' and 'light.gif' into this new folder. Type the following code and save it as 'index.html':
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Lighthouse Bistro</title>
+<meta charset="utf-8">
+<style>
+* { box-sizing: border-box;
+    margin: 0;
+}
+
+body {font-family: Verdana, Arial, sans-serif;
+}
+ 
+#wrapper { background-color:  #B3C7E6; 
+}
+
+header { color: #00005D; 
+        background-color: #869DC7;
+		background-image: url(light.gif);
+	    background-repeat: no-repeat;		
+		background-size: auto 100%;
+        padding: .5em 0 .5em 5.5em;
+}
+main {   background-color: #FFFFFF;
+         color: #000000;
+	     padding: 1em; 
+}
+aside { text-align: center; }
+
+footer {  background-color: #869DC7;
+         font-size:70%;
+         text-align: center;
+         padding: 0.5em 0;
+}
+
+h2 { color: #869DC7; }
+img { padding: 1em; }
+
+/* Styles to configure navigation links as horizontal areas */
+nav ul { list-style-type: none;
+         padding-left: 0; 
+		 border-top: 1px solid #EEEEEE;
+}
+nav li { border-bottom: 1px solid #EEEEEE;  
+         text-align: center;
+		 padding-top: .5em;
+		 padding-bottom: .5em;
+}
+nav a { text-decoration: none;
+		font-weight: bold;
+}
+nav a:link { color: #00005D; }
+nav a:hover { color: #FF0000; }
+
+/* make the current page's link look different */
+nav #page { font-weight: bold;
+            color: #FEFEFE; }
+
+
+/* Force older versions of Internet Explorer to display these HTML5 elements with block display. */
+header, nav, main, footer, aside, figure { display: block; }
+
+</style> 
+</head>
+<body>
+<div id="wrapper">
+  <header>
+    <h1>Lighthouse Bistro</h1>
+  </header>
+    <nav>
+	<ul>
+      <li id="page">Home</li>
+      <li><a href="rooms.html">Menu</a></li>
+      <li><a href="directions.html">Directions</a></li>
+      <li><a href="contact.html">Contact</a></li>
+	 </ul>
+    </nav>
+  <main>
+ 	<h2>Locally Roasted Coffee</h2>
+    <p>Indulge in the aroma of freshly ground roast free-trade coffee. Specialty drinks are available hot or cold.</p>
+    <h2>Specialty Pastries</h2>
+    <p>Enjoy a selection of our fresh-baked, organic pastries, including 
+  fresh-fruit muffins, scones, croissants, and cinnamon rolls.</p>
+  	<h2>Lunchtime is Anytime</h2>
+    <p>Savor delicious wraps and sandwiches on hearty, whole-grain breads with locally-grown salad, fruit, and vegetables. </p>
+    <h2>Panoramic View</h2>
+	<p>Take in some scenery! The top of our lighthouse offers a panoramic view of the countryside. Challenge your friends to climb our 100-stair tower.</p> 
+  </main>
+   <aside>
+    <figure>
+    <img src="lighthouse.jpg" width="250" height="355" alt="Lighthouse Island">
+    </figure>
+  </aside> 
+  <footer>
+	Copyright &copy; 2020
+  </footer>
+ </div>
+</body>
+</html>
+
+Notice that a <div> assigned to the 'wrapper' id has child elements of header, nav, main, aside, and footer as shown. The 'wrapper' id will be the grid container. The header, nav, main, aside, and footer elements are the grid items.
+
+Observe the CSS and note that while there are styles that set the visual look of the elements, the CSS does not include any styles for layout. Browsers render this page using normal flow with each element displayed under the preceding element. Notice also that there are no minimum widths assigned. This layout will work well on a small display such as a smartphone.
+
+Display your index.html file in a desktop browser. If your browser viewport is a typical size, it will look a bit awkward. Don't worry though, we intend this layout to be displayed on narrow mobile screens—so resize your browser to be narrower. This simulates the mobile display.
+
+There is one more item needed for a more pleasing and usable display on an actual mobile device: the viewport meta tag. 
+
+2. Launch a text editor and open 'index.html'. Add a viewport meta tag in the head section of the document below the meta tag. The HTML follows:​​
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+Save your file. If you display it in a desktop browser, it will look the same.
+
+Since the initial display of the web page is rendered well in normal flow, you will only need to configure grid layout when the media queries are triggered. You will determine the condition for the media query by widening the browser until the display begins to "break" or look awkward. Display your 'index.html' file in a browser—first narrow it and then gradually widen it. The point where it starts to seem awkward is around 600px wide, so that's what we'll code for our first media query and grid layout.
+
+You'll configure the layout to follow a medium display wireframe: horizontal header, horizontal navigation, adjacent main and aside elements, and horizontal footer.
+
+3. Launch a text editor and open 'index.html'. Since the browser display seems a bit awkward around 600px wide, code a media query below the existing CSS that checks for 600px. You will add style rules within the media query.
+The navigation area is now horizontal instead of vertical. You will use flexbox layout to configure this. Configure the 'nav ul' element selector to be a flexbox container and set the 'flex-direction' to 'row', 'flex-wrap' to 'nowrap', and 'justify-content' to 'spacearound'. Also code CSS to eliminate the bottom border on the 'li' elements in the navigation area.
+
+Next, assign grid areas for header, nav, aside, main, and footer to HTML element selectors. Configure a grid assigned to the 'wrapper' id. Use the 'grid-template' property to describe a grid that contains grid areas header, nav, main, aside, and footer. Set the first column in the grid to 55% width. Complete the following CSS and append it to the style section of 'index.html':
+
+
+... (...) {
+	nav ul { ... }
+	nav ul li { ... }
+	header { grid-area: header; }
+    nav    { grid-area: nav; }
+    main   { grid-area: main; }
+	aside  { grid-area: aside; }
+    footer { grid-area: footer; }
+	#wrapper { display: ...;
+	           grid-template: 
+				"header header"
+				"nav    nav" 
+				"main   aside"
+				"footer footer"
+				/ 55%  }
+}
+
+Save your file and test it in a browser. 
+
+4. Repeat the process to determine the condition for the next breakpoint. When displayed in a browser, the web page seems to be a bit awkward around 1024px, so that's what you'll code for in the next media query. Configure the layout to follow a large display wireframe: horizontal header; adjacent nav, main and aside elements; and horizontal footer.
+
+5. Launch a text editor and open 'index.html'. Code a CSS media query after the other style rules to change the display when the min-width of the viewport is at least 1024px. Add style rules within the media query that will set a dark blue background color for the body element selector, center the 'wrapper' id, and configure the 'nav ul' element selector as a flexbox container with 'flex-direction' set to 'column' and 'flex-wrap' set to 'nowrap'.
+
+Next, assign grid areas for header, nav, aside, main, and footer to HTML element selectors. Configure a grid assigned to the 'wrapper' id. Use the 'grid-template' property to describe a grid that contains grid areas header, nav, main, aside, and footer. Set the first column in the grid to 150px width. Complete the following CSS and append it to the style section of 'index.html':
+
+... (min-width: ...) {
+	body { background-color: #000066; }
+	nav ul { display: ...;
+			flex-direction: ...;
+			flex-wrap: ...; }
+	header { grid-area: header; }
+    nav    { grid-area: nav; }
+    main   { grid-area: main; }
+	aside  { grid-area: aside; }
+    footer { grid-area: footer; }		
+	#wrapper { width: ...;
+			   margin: ...; max-width: 1200px;
+			   display: ...;
+			   grid-template: 
+			     "header header header"
+				 "nav    main   aside"
+				 "footer footer footer"
+				 / 150px; }
+}
+
+Save the file and test it in a browser.
+
+
+--> Activity 3 
+
+In this activity you'll work with a web page that demonstrates responsive web design. You will edit the CSS to configure flexible images. 
+
+1. Create a folder named 'picture'. Type the following code in your editor and save it as 'index.html':
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Page Title Goes Here</title>
+<meta charset="utf-8">
+</head>
+<body>
+
+</body>
+</html>
+
+Save the large.jpg, medium.jpg, small.jpg, fallback.jpg files from BB into your 'picture' folder.
+
+2. Modify the file 'index.html' to configure a web page as follows:
+
+a. Configure the text "Picture Element" within an h1 element and within the title element.
+
+b. Code the following in the body of the web page:
+
+<picture>
+        <source media="(min-width: 1200px)" srcset="large.jpg">
+        <source media="(min-width: 800px)" srcset="medium.jpg">
+	<source media="(min-width: 320px)" srcset="small.jpg">
+        <img src="fallback.jpg" alt="water wheel"> 
+</picture>
+
+Save your file and test your page in a current version of Firefox or Chrome. Notice how a different image is displayed depending on the width of the browser viewport. If the viewport’s minimum width is 1200px or greater, the large.jpg image is shown. If the viewport’s minimum width is 800px or greater but less than 1200px, the medium.jpg image is displayed. If the viewport’s minimum width is 320px greater but less than 800px, the small.jpg image is shown. If none of these criteria are met, the fallback.jpg image should be displayed. As you test, try resizing and refreshing the browser display. You may need to resize the browser, close it, and launch it again to test for display of the different images. Browsers that do not support the new <picture> element will process the <img> tag and display the fallback.jpg image.
+
+--> Activity 4
+
+In this activity you will configure responsive images with the picture, source, and img elements.
+
+1. Create a new folder named 'image'. Copy the large.jpg, medium.jpg, small.jpg, and fallback.jpg files into your 'image' folder. Launch a text editor type the following code:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Page Title Goes Here</title>
+<meta charset="utf-8">
+</head>
+<body>
+
+</body>
+</html>
+
+Save the file as 'index.html' in your 'image' folder. 
+
+2. Modify the file to configure a web page as follows:  
+
+a. Configure the text "Img Element" within an h1 element and within the title element.
+
+b. Code the following in the body of the web page:
+
+<img src="fallback.jpg" 
+     sizes="100vw"
+     srcset="large.jpg 1200w, medium.jpg 800w, small.jpg 320w"
+	 alt="water wheel" >
+
+Save your file and test your page in a current version of Firefox or Chrome. Notice how a different image is displayed depending on the width of the browser viewport. If the viewport’s minimum width is 1200px or greater, the large.jpg image is shown. If the viewport’s minimum width is 800px or greater but less than 1200px, the medium.jpg image is displayed. If the viewport’s minimum width is 320px greater but less than 800px, the small.jpg image is shown. If none of these criteria are met, the fallback.jpg image should be displayed. As you test, try resizing and refreshing the browser display. You may need to resize the browser, close it, and launch it again to test for display of the different images. Browsers that do not support the image element’s new sizes and 'srcset' attributes will ignore these attributes and display the 'fallback.jpg' image.
+
+---

@@ -1,0 +1,41 @@
+/* Set default styles for the webpage */
+body {
+    background-color: #DFEFF0;
+    color: #333333;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style first-level headings (h1) */
+h1 {
+    color: #AD235D;
+    border-bottom: 1px solid #AD235D;
+}
+
+/* Style second-level headings (h2) */
+h2 {
+    font-style: italic;
+    font-weight: normal;
+    margin-bottom: 0px;
+}
+
+/* Style paragraphs */
+p {
+    margin-top: 0px;
+    line-height: 1.5em;
+}
+
+/* Style ordered and unordered lists */
+ol, ul {
+    padding-left: 12px;
+}
+
+/* Style hyperlinks */
+a {
+    color: #7D9C9E;
+    text-decoration: none;
+}
+
+/* Change hyperlink color on hover */
+a:hover {
+    color: #AD235E;
+}

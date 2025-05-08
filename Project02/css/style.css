@@ -1,0 +1,144 @@
+/* ===== 基础样式 ===== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* ===== 整体布局（导航栏 + 正文） ===== */
+.layout-wrapper {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    gap: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== 左侧导航栏 ===== */
+nav.sidebar {
+    width: 220px;
+    flex-shrink: 0;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+    border-radius: 10px;
+    position: sticky;
+    top: 30px;
+    height: fit-content;
+}
+
+nav.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav.sidebar li {
+    margin-bottom: 15px;
+}
+
+nav.sidebar a {
+    text-decoration: none;
+    color: #0077cc;
+    font-weight: bold;
+    display: block;
+}
+
+nav.sidebar a:hover {
+    text-decoration: underline;
+    color: #005fa3;
+}
+
+/* ===== 中间主内容区 ===== */
+main.content {
+    flex: 1;
+    min-width: 600px;
+}
+
+main.content h1 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+main.content section {
+    margin-bottom: 40px;
+}
+
+/* ===== 表格样式 ===== */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0;
+    font-size: 0.95em;
+    background-color: #fff;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.03);
+}
+
+.data-table caption {
+    caption-side: top;
+    font-weight: bold;
+    font-size: 1em;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.data-table thead tr {
+    background-color: #0077cc;
+    color: #ffffff;
+    text-align: left;
+}
+
+.data-table th, .data-table td {
+    padding: 12px 15px;
+    border: 1px solid #dddddd;
+}
+
+.data-table tbody tr:nth-child(even) {
+    background-color: #f3f3f3;
+}
+
+.data-table tbody tr:hover {
+    background-color: #e6f2ff;
+    transition: background-color 0.2s ease-in-out;
+}
+
+/* ===== 图文布局与图片样式 ===== */
+figure {
+    text-align: center;
+    margin: 20px 0;
+}
+
+figcaption {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 8px;
+}
+
+/* ===== 页脚样式 ===== */
+footer {
+    max-width: 1200px;
+    margin: 40px auto 0;
+    padding: 20px;
+    border-top: 1px solid #ccc;
+    font-size: 0.9em;
+    color: #555;
+    background-color: #ffffff;
+    border-radius: 0 0 10px 10px;
+    text-align: center;
+}
+
+footer a {
+    color: #0077cc;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+

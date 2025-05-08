@@ -1,0 +1,33 @@
+<?php
+session_start();
+if (!isset($_SESSION['messages'])) {
+    $_SESSION['messages'] = [];
+}
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $_SESSION['messages'][] = [
+        'author' => $_POST['author'],
+        'text' => $_POST['text']
+    ];
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head><title>Group B Board</title></head>
+<body>
+  <h1>Group B Message Board</h1>
+  <form method="POST">
+    <input name="author" placeholder="Name" required><br>
+    <textarea name="text" placeholder="Message" required></textarea><br>
+    <button type="submit">Post</button>
+  </form>
+
+  <h2>Messages</h2>
+  <div>
+    <?php foreach ($_SESSION['messages'] as $msg): ?>
+      <p><strong><?= $msg['author'] ?>:</strong> <?= $msg['text'] ?></p> <!-- ❌ Vulnerable -->
+    <?php endforeach; ?>
+  </div>
+</body>
+</html>

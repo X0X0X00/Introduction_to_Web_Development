@@ -1,0 +1,139 @@
+--> Activity 1
+
+Download files from BB.
+Examine test01.html reported below:
+
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8"/>  
+    <title>Javascript and DOM</title>   
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,800" rel="stylesheet">    
+    <link rel="stylesheet" href="test01.css">
+</head>
+<body>
+
+<main class="container">
+
+    <form class=box>
+        <fieldset>
+            <legend id="title">DOM Test</legend>
+            <label>Comments</label>
+            <textarea id="msg" rows="5"></textarea>
+
+            <label class="input-labels">Name</label>
+            <input type="text" >
+
+            <label class="input-labels">Email</label>
+            <input type="text" >    
+
+            <label class="input-labels">City</label>
+            <input type="text" >                    
+
+            <p>This is some sample text, which will eventually appear in the textarea once you write some JavaScript code to do so</p>
+        </fieldset>
+        <ul id="thumb-list">
+            <li><img src="images/5856658791.jpg" class="thumbs"></li>
+            <li><img src="images/6114881215.jpg" class="thumbs"></li>
+            <li><img src="images/6592294487.jpg" class="thumbs"></li>
+            <li><img src="images/9495574327.jpg" class="thumbs"></li>
+        </ul>
+    </form>
+
+</main>
+
+<script src="test01.js"></script>
+
+</body>
+</html>
+
+Open test01.js in your editor reported below:
+
+/* test01.js */
+/* add code after this comment */
+
+Modify the JavaScript file to implement the following functionality.
+
+1. Use getElementById to add a border via CSS to the <ul> element with the 
+name "thumb-list".
+
+document.getElementById('thumb-list').style.border = "solid 1px #CCCCCC";
+
+2.  Use querySelector to set the value property of the <textarea> to the textContent 
+property of the <p> element.
+
+	const images = document.querySelectorAll('#thumb-list img');
+
+3. Use querySelectorAll to add a box shadow to each of the <img> elements 
+within the <ul> element. The CSS property name is box-shadow so the 
+JavaScript DOM property name will be boxShadow. To see a sample box-shadow, look at the example for the box class in test01.css. Remember that you will need to use a loop.
+
+Note: To read more about boxShadow see below:
+
+https://www.w3schools.com/jsref/prop_style_boxshadow.asp
+
+--> Activity 2
+
+In this activity, you will use DOM methods to dynamically add structured content. Download and extract test02.zip.
+
+1. Examine test02.html reported below:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript and DOM</title>
+  <link href="https://fonts.googleapis.com/css?family=Oswald:300,500" rel="stylesheet">    
+  <link rel="stylesheet" href="test02.css">
+</head>
+<body>
+   <main>
+     <header>
+       <h1>Activity 2</h1>
+     </header>  
+     <section id="parent">
+         <!-- This illustrates the markup ... you will cut it or comment it out -->
+         <figure>
+            <img src="images/5855729828.jpg" alt="British Museum">
+            <figcaption>
+               <h2>British Museum</h2>
+               <p>The library in the British Museum in London. The British Museum Reading Room, situated in the centre of the Great Court of the British Museum, used to be the main reading room of the British Library. In 1997, this function moved to the new British Library building at St Pancras, London, but the Reading Room remains in its original form at the British Museum.</p>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+            </figcaption>
+         </figure>
+
+         <script src="photos.json"></script>
+         <script src="test02.js"></script>
+     </section>
+   </main>
+   </body>
+</html>
+
+It provides the sample markup for a single photo. You will replace that markup with JavaScript in the following steps.
+
+2. Modify test02.js in your editor. You will need to select the <section> element that has an id=parent. Loop through the photos array and create a <figure> element that will get appended to the parent element. You may want to examine photos.json again to reacquaint  yourself with its structure.
+
+You will need to use JSON.parse() for parsing JSON and the method createElement() for adding figures or other HTML elements. See below:
+
+https://www.w3schools.com/js/js_json_parse.asp
+https://www.w3schools.com/jsref/met_document_createelement.asp
+
+3. Within that loop, you will need to dynamically create the <img> element using 
+the appropriate DOM methods. Populate its 'src' and 'alt' attributes from the 
+photo data. 
+
+4. After the image is created, you will need to create the <figcaption> element. 
+This element will contain the following child elements which will also be 
+dynamically generated from the photo data: <h2>, <p>, and <span>. For the 
+<span> elements, you will need to loop through the colors array inside each 
+photo object and set the backgroundColor property of the <span> to the 'hex'
+value. Append the <figcaption> to the <figure>.
+
+5. Be sure to append the created elements to the appropriate parent.
+
+---

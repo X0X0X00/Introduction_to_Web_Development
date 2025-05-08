@@ -1,0 +1,13 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $studentName = $_POST["studentName"];
+    $studentAge = $_POST["studentAge"];
+    echo "Student's name is $studentName and they are $studentAge years old.";
+}
+?>
+
+<form method="POST">
+    Name: <input type="text" name="studentName"><br>
+    Age: <input type="number" name="studentAge"><br>
+    <input type="submit" value="Submit">
+</

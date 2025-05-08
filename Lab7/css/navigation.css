@@ -1,0 +1,30 @@
+.menu ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+}
+
+.menu a {
+    color: #ECF0F1;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* 悬停时的样式 */
+.menu a:hover {
+    background-color: #3498DB;
+    color: white;
+}
+
+/* ✅ 当前页面的菜单项高亮样式 */
+.menu a.is-current {
+    background-color: #F39C12;  /* 橙黄色背景 */
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);  /* 轻微阴影让它更突出 */
+}

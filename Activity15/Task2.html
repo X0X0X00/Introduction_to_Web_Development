@@ -1,0 +1,38 @@
+<?php
+$studentGrades = [];
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // 获取输入的 5 个分数
+    for ($i = 1; $i <= 5; $i++) {
+        if (isset($_POST["score$i"])) {
+            $studentGrades[] = (int) $_POST["score$i"]; // 转换为整数并存入数组
+        }
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grades</title>
+</head>
+<body>
+
+    <h2>Enter 5 Test Scores</h2>
+    <form method="POST">
+        <?php for ($i = 1; $i <= 5; $i++): ?>
+            Score <?php echo $i; ?>: <input type="number" name="score<?php echo $i; ?>" required><br>
+        <?php endfor; ?>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <?php if (!empty($studentGrades)): ?>
+        <h3>Student Grades:</h3>
+        <p><?php echo implode(", ", $studentGrades); ?></p>
+    <?php endif; ?>
+
+</body>
+</html>

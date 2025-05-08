@@ -1,0 +1,169 @@
+--> Activity: Working with Sessions and Cookies in PHP
+
+Objective: In this activity, you will work with PHP sessions and cookies to manage user authentication and store application state.
+
+Part 1: Basic Session Management
+
+In this part of, you will create multiple PHP files that demonstrate how to use sessions for user authentication.
+
+    Setup:
+        Create the following files in the same directory on your local computer:
+            index.php (Home Page or Landing Page)
+            login.php (Login Page)
+            logout.php (Logout Page)
+            register.php (Registration Page)
+
+        (*) Replace the placeholder username and password in the login.php file with your own credentials.
+
+    Usage:
+        index.php: The main page, where users are welcomed and can log in or register.
+        login.php: Contains the login form for users to enter their credentials.
+        logout.php: Logs users out by destroying the session.
+        register.php: A simplified registration form for creating a new user (without a database).
+
+File 1: index.php (Home Page or Landing Page)
+
+<?php
+session_start(); // Initialize a new session
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>Welcome to the Application!</h1>
+    <?php if(isset($_SESSION['username'])): ?>
+        <p>Welcome, <?php echo $_SESSION['username']; ?>!</p>
+        <p><a href="logout.php">Logout</a></p>
+    <?php else: ?>
+        <p><a href="login.php">Login</a> | <a href="register.php">Register</a></p>
+    <?php endif; ?>
+</body>
+</html>
+
+File 2: login.php (Login Page)
+
+<?php
+session_start();
+
+if(isset($_SESSION['username'])) {
+    header("Location: index.php"); // Redirect if already logged in
+    exit;
+}
+
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Perform login validation (replace with your own validation logic)
+    $username = "demo"; // Replace with your registered username
+    $password = "password"; // Replace with your registered password
+
+    if($_POST['username'] === $username && $_POST['password'] === $password) {
+        $_SESSION['username'] = $_POST['username'];
+        header("Location: index.php");
+        exit;
+    } else {
+        $error = "Invalid username or password!";
+    }
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <?php if(isset($error)): ?>
+        <p style="color: red;"><?php echo $error; ?></p>
+    <?php endif; ?>
+    <form method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>
+
+File 3: logout.php (Logout Page)
+
+<?php
+session_start();
+session_unset();
+session_destroy();
+header("Location: index.php");
+exit;
+?>
+
+File 4: register.php (Registration Page)
+
+<?php
+session_start();
+
+if(isset($_SESSION['username'])) {
+    header("Location: index.php"); // Redirect if already logged in
+    exit;
+}
+
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Perform registration (replace with your own registration logic)
+    // For simplicity, storing registration data in session
+    $_SESSION['username'] = $_POST['username'];
+    header("Location: index.php");
+    exit;
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Page</title>
+</head>
+<body>
+    <h1>Register</h1>
+    <form method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
+
+Part 2: Practice with Cookies
+
+In this part, you will practice with cookies. Follow the instructions below to create a custom cookie.
+
+    Create a new file cookie.php:
+
+<?php
+    // Initialize customized cookie parameters
+    $cookie_name = ""; // complete with a name of your choice
+    $cookie_value = "";	// complete with a value of your choice
+    $cookie_expiration = time() + ...; // complete with an expiration time in seconds
+    $cookie_path = "/"; // Available in the entire domain
+    $cookie_domain = "";
+    $cookie_secure = false; // Set to true if using HTTPS
+    $cookie_http = true; // Set to true to restrict cookie access to HTTP
+
+    // Set the cookie with customized parameters
+    setcookie(
+        $cookie_name,
+        $cookie_value,
+        $cookie_expiration,
+        $cookie_path,
+        $cookie_domain,
+        $cookie_secure,
+        $cookie_http
+    );
+	echo "Cookie set!";
+?>
+
+Test the script on your browser. You should be able to see your cookie in Web Developer Tools > Application or Cookies. Try different values for the cookie expiration and other parameters.
+
+---

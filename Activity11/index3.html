@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Picture Element</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: Verdana, Arial, sans-serif;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+h1 {
+    color: #00005D;
+    margin-top: 20px;
+}
+
+picture, img {
+    max-width: 100%;
+    height: auto;
+}
+</style>
+</head>
+<body>
+<h1>Picture Element</h1>
+<picture>
+    <source media="(min-width: 1200px)" srcset="large.jpg">
+    <source media="(min-width: 800px)" srcset="medium.jpg">
+    <source media="(min-width: 320px)" srcset="small.jpg">
+    <img src="fallback.jpg" alt="water wheel"> 
+</picture>
+</body>
+</html>

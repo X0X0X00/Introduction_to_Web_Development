@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!-- popcorn.html describes the popcorn sales form -->
+<html lang="en">
+<head>
+    <title>Popcorn Sales - for PHP handling</title>
+    <meta charset="utf-8" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Popcorn Sales Form</h2>
+    <form action="popcorn.php" method="post">
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+            </tr>
+            <tr>
+                <td>Unpopped Popcorn ($3.00 per bag)</td>
+                <td><input type="text" name="unpop" value="0"></td>
+            </tr>
+            <tr>
+                <td>Caramel Popcorn ($3.50 per bag)</td>
+                <td><input type="text" name="caramel" value="0"></td>
+            </tr>
+            <tr>
+                <td>Caramel Nut Popcorn ($4.50 per bag)</td>
+                <td><input type="text" name="caramelnut" value="0"></td>
+            </tr>
+            <tr>
+                <td>Toffee Nut Popcorn ($5.00 per bag)</td>
+                <td><input type="text" name="toffeynut" value="0"></td>
+            </tr>
+        </table>
+
+        <h3>Customer Information</h3>
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" name="name" required></td>
+            </tr>
+            <tr>
+                <td>Street:</td>
+                <td><input type="text" name="street" required></td>
+            </tr>
+            <tr>
+                <td>City:</td>
+                <td><input type="text" name="city" required></td>
+            </tr>
+        </table>
+
+        <h3>Payment Method</h3>
+        <input type="radio" name="payment" value="Credit Card" required> Credit Card<br>
+        <input type="radio" name="payment" value="PayPal" required> PayPal<br>
+        <input type="radio" name="payment" value="Cash" required> Cash<br>
+
+        <br>
+        <input type="submit" value="Submit Order">
+    </form>
+</body>
+</html>

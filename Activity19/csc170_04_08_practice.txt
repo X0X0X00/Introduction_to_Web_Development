@@ -1,0 +1,168 @@
+(From Felke-Morris)
+
+--> Activity 1
+
+In this activity, you will create a web page that contains an h1 tag and a hyperlink to an MP3 file. The web page will also 
+provide a hyperlink to a text transcript of that file to provide for accessibility. It’s useful to your web page visitors to also indicate 
+the type of file (such as an MP3) and, optionally, the size of the file to be accessed.
+
+Download the podcast.mp3 and podcast.txt files from BB. Save them to a folder named 'podcast'. Create an HTML template webpage as follows:
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Page Title Goes Here</title>
+		<meta charset="utf-8">
+	</head>
+<body>
+
+</body>
+</html>
+
+Add the heading "Web Design Podcast", a hyperlink to the MP3 file, and a hyperlink to the text transcript. 
+Save your web page as podcast.html and display it in a browser. 
+Test your web page in different browsers, using different versions. 
+When you click on the MP3 hyperlink, an audio player (whichever player or plug-in is configured for the browser) will launch to 
+play the file. When you click on the hyperlink for the text transcript, the text will display in the browser. 
+
+--> Activity 2
+
+In this activity, you will launch a text editor and create a web page that displays an audio control to play a podcast.
+
+Copy the podcast.mp3, podcast.ogg, and podcast.txt files from BB to a folder named 'audio'. 
+
+Use a template HTML page as a starting point and create a web page with the heading “Web Design Podcast”, an audio control (use the audio element and 
+two source elements), and a hyperlink to the podcast.txt transcript file. Configure a hyperlink to the MP3 file as the fallback content. The code for the audio element is
+
+<audio controls="controls">
+	<source src="podcast.mp3" type="audio/mpeg">
+	<source src="podcast.ogg" type="audio/ogg">
+	<a href="podcast.mp3">Download the Podcast</a> (MP3)
+</audio>
+
+Save your web page as index.html in the 'audio' folder and display it in a browser. 
+Test your web page in different browsers, using different versions. 
+When you click on the hyperlink for the text transcript, the text will display in the browser. 
+
+--> Activity 3
+
+In this activity, you will launch a text editor and create a web page, which displays a video control to play a movie.
+
+Download the lighthouse.m4v, lighthouse.ogv, lighthouse.mov, and lighthouse.jpg files from BB and save them to a folder named 'video'. 
+Create an HTML template as above in a text editor. Add the heading "Lighthouse Cruise" and a video control (use the video element 
+and two source elements). Configure the lighthouse.jpg file as a poster image, which will display if the browser supports the video element, 
+but it cannot play any of the video files. 
+The code for the video element is:
+
+<video controls="controls" poster="lighthouse.jpg"
+    width="320" height="240">
+	 <source src="lighthouse.m4v" type="video/mp4"> 
+	 <source src="lighthouse.ogv" type="video/ogg">
+     <a href="lighthouse.mov">Lighthouse Cruise</a> (.mov)
+</video>
+
+Save your web page as index.html in the 'video' folder and display it in a browser. Test your web page in different browsers.
+
+(From Felke-Morris)
+
+--> Activity 4: Interactive CSS
+
+In this activity you will configure a drop down menu that displays when a visitor hovers  over the Cuisine navigation hyperlink. The main 
+menu has hyperlinks for Home, Coffee, Cuisine, Directions, and Contact. 
+The Cuisine page has three subpages: Breakfast, Lunch, and Dinner. Create a folder named 'mybistro'. Extract files in bistro.zip into your 'mybistro' 
+folder. You will modify the CSS and edit each page to configure a Cuisine submenu that provides hyperlinks to three pages (Breakfast, Lunch, and Dinner).
+
+Task 1: Launch a text editor and open the index.html file. Modify the nav area to contain a new unordered list with hyperlinks to the 
+Breakfast, Lunch, and Dinner pages. Configure a new ul element that is contained within the Cuisine li element. The new ul element will contain 
+an li element for each meal. This is the new HTML for <nav>:
+
+<nav>
+<ul>
+ <li><a href="index.html">Home</a></li>
+ <li><a href="coffee.html">Coffee</a></li>
+ <li><a href="cuisine.html">Cuisine</a>
+ <ul>
+ <li><a href="breakfast.html">Breakfast</a></li> 
+ <li><a href="lunch.html">Lunch</a></li>
+ <li><a href="dinner.html">Dinner</a></li>
+ </ul>
+ </li>
+ <li><a href="directions.html">Directions</a></li>
+ <li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+
+Save the file and display it in a browser. Don’t worry if the navigation area seems a bit garbled—you'll configure the submenu CSS later. Next, edit each page (coffee. html, cuisine.html, breakfast.html, lunch.html, dinner.html, directions.html and  contact.html) and edit the nav area as you did 
+in the index.html file.
+
+Task 2: Configure the CSS. Launch a text editor and open the bistro.css file.
+a. The submenu will be configured with absolute positioning. Recall that absolute positioning precisely specifies the location of an 
+element outside of normal flow in relation to its first parent non-static element. The nav element’s position is static by default so add the following declaration to the styles for the nav element selector: 
+
+	position: relative;
+
+b. The submenu that displays the hyperlinks for the Breakfast, Lunch, and Dinner pages is configured using a new ul element that is contained within the 
+existing ul element in the nav area. Configure a descendant nav ul ul selector and code style declarations to use absolute positioning, #5564A0 background color, 0 padding, left text alignment and display set to none. The CSS follows:
+
+nav ul ul { 
+	position: absolute; 
+	background-color: #5564A0; 
+	padding: 0; 
+	text-align: left; 
+	display: none; 
+}
+
+c. To style each li element within the submenu, use a descendant nav ul ul li selector and configure the li elements in the submenu with a border, 
+block display, 8em width, 1em left padding, and 0 left margin. The CSS follows:
+
+nav ul ul li { 
+	border: 1px solid #00005D; 
+	display: block; 
+	width: 8em; 
+	padding-left: 1em; 
+	margin-left: 0; 
+}
+
+d. Configure the submenu ul to display when the :hover is triggered for the li elements in the nav area. The CSS follows:
+
+nav li:hover ul { display: block; }
+
+Test your page in a browser.
+
+
+--> Activity 5: CSS Transform
+ 
+In this activity you will practice with rotation and scale. Create a new folder named 'transform'. 
+Copy the lighthouseisland.jpg, lighthousemini.jpg, and lighthouselogo.jpg images from BB to your 'transform' folder. 
+Launch a text editor and open the starter.html (BB) file. 
+Save the file as index.html in your 'transform' folder. Launch the file in a browser.
+
+Open index.html in a text editor and view the embedded CSS.
+
+1. Locate the figure element selector. You will add new style declarations to the figure
+element selector that will configure a three-degree rotation transform. The new CSS
+is shown below.
+
+figure { 
+	float: right; margin: 10px; background-color: #FFF;
+	padding: 5px; border: 1px solid #CCC;
+	box-shadow: 5px 5px 5px #828282;
+	transform: rotate(3deg);
+}
+
+2. Locate the #offer selector. This configures the "Special Offer" div displayed above
+the page footer. You will add a style declaration to the #offer selector that configures
+the browser to display the element two times larger. The new CSS is shown below:
+
+#offer { 
+	background-color: #eaeaea;
+	width: 10em;
+	margin: auto;
+	text-align: center;
+	transform: scale(2); 
+}
+
+Save the file and display it in a browser. You should see the figure displayed on a
+slight angle and the "Special Offer" text displayed in large text.
+
+---

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Change title text on page load
+            $("h1").text("Welcome to jQuery Practice!");
+
+            // Change paragraph text and image source on button click
+            $("#changeContent").click(function() {
+                $("#description").text("This content has been updated using jQuery.");
+                $("#image").attr("src", "https://via.placeholder.com/300x200.png?text=Updated+Image");
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Original Title</h1>
+    <p id="description">Original description text.</p>
+    <img id="image" src="https://via.placeholder.com/300x200.png?text=Original+Image" alt="Placeholder Image">
+    <button id="changeContent">Change Content</button>
+</body>
+</html>

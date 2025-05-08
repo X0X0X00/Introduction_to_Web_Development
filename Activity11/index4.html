@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Img Element</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: Verdana, Arial, sans-serif;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+h1 {
+    color: #00005D;
+    margin-top: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+</style>
+</head>
+<body>
+<h1>Img Element</h1>
+<img src="fallback.jpg" 
+     sizes="100vw"
+     srcset="large.jpg 1200w, medium.jpg 800w, small.jpg 320w"
+     alt="water wheel">
+</body>
+</html>

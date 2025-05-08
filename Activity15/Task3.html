@@ -1,0 +1,7 @@
+function calculateAverage(grades) {
+    let sum = grades.reduce((acc, curr) => acc + curr, 0);
+    return sum / grades.length;
+}
+
+let averageScore = calculateAverage(studentGrades);
+console.log(`The average score is ${averageScore}.`);

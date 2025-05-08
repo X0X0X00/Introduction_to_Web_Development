@@ -1,0 +1,113 @@
+Note: Some of the activities may require some additional research on your side. Most of the features have been covered in lectures.
+For some of the activities you may want to consider the [attribute="value"] CSS selector, for selecting HTML elements where the attribute has a certain value. It is OK if you are not able to complete these by the end of the lecture. However, check in often to show your progress or to ask questions.
+
+--> Activity 1
+
+You will style a form in this activity. To get started, create a template HTML file or use a ready one from BB. 
+Save the file with the name 'contactus.html'.
+
+Add a form in the body of your webpage with the HTML code below:
+
+<form>
+  <label for="myName">Name:</label>
+  <input type="text" name="myName" id="myName">
+  <label for="myEmail">E-mail:</label>
+  <input type="text" name="myEmail" id="myEmail">
+  <label for="myComments">Comments:</label>
+  <textarea name="myComments" id="myComments" rows="2" cols="20"></textarea>
+  <input type="submit" value="Submit">
+</form>
+
+Write embedded CSS within the style element as follows:  
+
+1. Configure a 'form' selector with a #CFF8F8 background color, Arial or sans-serif font, 350px width, and 10 pixels of padding.
+		
+2. Configure the 'label' element selector to float to the left, clear left floats, and use block display. Also set width to 100px, 10 pixels of right padding, a 10px top margin, and right-aligned text.
+		
+3. Configure the 'input' element selector with block display and a 10px top margin.
+				  
+4. Configure the 'textarea' element selector with block display and a 10px top margin.
+
+5. Configure the 'submit' button to display under the other form controls, with a 110 pixel margin on the left. You could configure a new id or class and then edit the HTML but there is a more efficient method. 
+You will configure an attribute selector, which allows you to select using both the element name and the attribute value as the criteria. In this case, we need to style input tags that have a 'type' attribute with the value 'submit' in a different manner than the other input tags, so you'll configure an attribute selector for that purpose.	
+
+Save your file and test your page in a browser.
+
+--> Activity 2
+
+CSS Grid Layout offers another method to configure the layout of a form.
+
+In this activity you will use the form you created in Activity 1 and code a CSS feature query to configure grid layout in supporting browsers. 
+Browsers that do not support grid layout will display the form as originally styled with CSS. Browsers that support grid will follow the grid layout styles. 
+To get started, launch a text editor and open the file 'contactus.html'. 
+Save the file with the name 'contact2.html'. 
+ 
+1. ﻿Locate the closing 'style' tag. You will code CSS above the closing style tag and below the existing CSS in the file. Configure a feature query that will test for grid layout support. How do we test if a feature is supported?
+		  
+2. Configure the following CSS within the feature query to configure the form using grid layout. 
+
+2.1 Configure declarations for the 'form' element selector. Set the display property to grid with auto rows and two columns (6em and 1fr). Also set 1em grid gap, #CFF8F8 background color, Arial or sans serif font, 60% width, 20em minimum width, and 1.5em padding.
+
+2.2 Configure the 'submit' button. Review the grid sketch of the figure and notice how the elements in the grid are placed one right after another to fill the grid except for the submit button, which is in the second column of the grid. Use an attribute selector to target the 'submit' button and explicitly place it in the second column of the grid. Also set the width to 10em and the left margin to 0.
+
+Save your file and test your page in a browser.
+
+--> Activity 3: Server-side processing (preview)
+
+In this activity, you will configure a form to invoke a server-side script.
+Please note that your computer must be connected to the Internet when you test your
+work. When using a server-side script, you will need to obtain some information, or documentation,
+from the person or organization providing the script. You will need to know
+the location of the script, whether it requires any specific names for the form controls,
+and whether it requires any hidden form elements.
+
+A server-side script has been created for students to use for this exercise. The documentation for the server-side script is listed below:
+• Script URL: http://webdevbasics.net/scripts/demo.php
+• Form method: post
+• Script purpose: This script will accept form input and display the form control
+names and values in a web page. This is a sample script for student assignments.
+It demonstrates that server-side processing has been invoked. A script
+used by an actual website would perform a function such as sending an e-mail
+message or updating a database.
+
+Now you will add the configuration required to use the 'demo.php' server-side processing
+with a form. Launch a text editor and open the file created in activity 2. 
+Modify the <form> tag by adding an action attribute with a value
+of "http://webdevbasics.net/scripts/demo.php" and a method attribute with a
+value of "post".
+Save your file as contact.html and test your web page in a browser.
+Now you are ready to test your form. You must be connected to the Internet to test your
+form successfully. Enter information in the form controls and click the submit button.
+
+The 'demo.php' script creates a web page that displays a message and the form information
+that you entered. Where did this confirmation page originate? This confirmation page
+was created by the server-side script on the action attribute in the form element.
+
+--> Activity 4
+
+In this activity, you will code HTML5 form controls as you configure a form that accepts a name, e-mail address, rating value, and comments from a website visitor.
+
+To get started, launch a text editor and open the file created in Activity 2.
+
+1. Modify the title element to display the text "Comment Form". Add an h1 element with the text 
+"Send Us Your Comments". Add a paragraph to indicate "Required fields are marked with an asterisk *."
+
+2. Modify the embedded styles:
+
+a. Configure the 'form' element selector to have a minimum width of 400 pixels.
+b. Change the width of the 'label' element selector to 150 pixels.
+c. Change the left margin of #mySubmit to 160 pixels.
+
+3. Modify the 'form' element to submit the form information, using the 'post' method, to
+the form processor at http://webdevbasics.net/scripts/demo.php:
+
+	<form method="post" action="http://webdevbasics.net/scripts/demo.php">
+
+4. Modify the form controls:
+a. Configure the name, e-mail, and comment information to be 'required'. Use an
+asterisk to inform your web page visitor about the required fields.
+b. Code type="email" instead of type="input" for the e-mail address.
+c. Use the 'placeholder' attribute to provide hints to the user in the name and e-mail form controls.
+5. Add a slider control (use type="range") to generate a value from 1 to 10 for the rating.
+
+---

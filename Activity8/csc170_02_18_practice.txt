@@ -1,0 +1,243 @@
+Activity 1:  Practice with single-column layout. 
+
+Launch a text editor, and type the following HTML code:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Layout Example</title>
+<meta charset="utf-8">
+<style>
+
+</style>
+</head>
+<body>
+<div id="wrapper">
+  <header><h1>Layout Example</h1></header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="page1.html">Page 1</a>
+    <a href="page2.html">Page 2</a>
+  </nav>
+  <main>
+    <h2>Page Heading</h2>
+    <p>This is a sentence. This is a sentence. This is a sentence. This is a sentence. This is a sentence. This is a sentence. This is a sentence. This is a sentence. This is a sentence. This is a sentence. This is a sentence. This is a sentence. This is a sentence. This is a sentence. This is a sentence. This is a sentence. This is a sentence. This is a sentence. This is a sentence. This is a sentence. This is a sentence. This is a sentence. This is a sentence. This is a sentence.</p>
+  </main>
+  <footer>Copyright &copy; 2020</footer>
+</div>
+</body>
+</html>
+
+Save the file as index.html and test in a browser. You will notice that the page is organized in a 
+single-column layout.
+
+
+Step 1: Configure a two-column layout. Launch a text editor and open the index.html file. You will 
+edit the HTML and CSS to configure a two-column layout.
+
+1.1 Edit the HTML. The two-column  navigation will be displayed in a vertical orientation. Code a 
+line break tag after each of the first two hyperlinks in the <nav> area.
+
+1.2 Configure the float with CSS. Locate the <style> tags in the <head> section of the document 
+and code the following style rule as embedded CSS to configure a <nav> element with a width of 
+90px that floats to the left. Save the file and test it in your browser. The content in the main 
+area should wrap around the floated <nav> element. You will need to complete the following CSS for 
+floating the <nav> section to the left:
+
+nav { … ; width: 90px; }
+
+1.3 Configure two columns with CSS. You just configured the nav element to float on the left. 
+The <main> element will be in the rightside column and will be configured with a left margin 
+(the same side as the float). To get a two-column look, the value of the margin should be greater 
+than the width of the floated element. Open the index.html file in a text editor and code the 
+following style rule to configure a 100px left margin for the <main> element. Save the file and 
+test it in the Firefox or Chrome browser. You will need to complete the following CSS for adding 
+a left margin to the <main> section:
+
+main { ... }
+
+1.4 Enhance the page with CSS. Code the following style rules as embedded CSS to create a more 
+appealing web page.
+
+a. The body element selector. Configure a dark background color.
+
+body { background-color: #000066; }
+
+b. The 'wrapper' id selector. Configure 80% width, centered on the page, and a light 
+(#EAEAEA) background color. This background color will display behind child elements (such as the nav 
+element) that do not have a background color configured.
+
+#wrapper { width: 80%;
+margin-left: auto;
+margin-right: auto;
+background-color: #EAEAEA; }
+
+c. The header element selector. Configure #CCCCFF background color.
+
+header { background-color: #CCCCFF; }
+
+d. The <h1> element selector. Configure 0 margin and 10px of padding.
+
+h1 { margin: 0; padding: 10px; }
+
+e. The <nav> element selector. Edit the style rule and add a declaration for 10 pixels of padding.
+
+nav { 
+	float: left;
+	width: 90px;
+	padding: 10px;
+}
+
+f. The <main> element selector. Edit the style rule and add a declaration for 10 pixels of padding and #FFFFFF background color.
+
+main { 
+	margin-left: 100px;
+	padding: 10px;
+	background-color: #FFFFFF;
+}
+
+g. The <footer> element selector. Configure centered, italic text, and a #CCCCFF background color. Also configure the footer to clear all floats.
+
+footer { 
+	text-align: center;
+	font-style: italic;
+	background-color: #CCCCFF;
+	clear: both; 
+}
+
+Save your file and test it in the Firefox or Chrome browser.
+
+--
+
+Activity 2: Practice with pseudo-classes
+
+You will use pseudo-classes to create interactive hyperlinks in this activity. 
+
+Open the text editor and type the following code:
+
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+<title>Lighthouse Island Bistro</title>
+<meta charset="utf-8">
+<style>
+* { box-sizing: border-box; }
+body {font-family:Verdana, Arial, sans-serif;
+      background-color: #00005D;
+}
+#wrapper { background-color: #B3C7E6; 
+           color: #000066;
+           width: 80%;
+		   margin: auto;
+           min-width: 960px;
+		   max-width: 1200px;
+} 
+nav { float: left;
+	  width: 150px;
+}
+
+main {  display: block; /* for Internet Explorer  */
+        margin-left: 155px;
+        padding: 20px;
+        background-color: #FFFFFF;
+        color: #000000;
+} 
+header { background-color: #869dc7;
+        color: #00005D; 
+        font-size: 150%; 
+        padding: 10px 10px 10px 155px;
+		background-image: url.(lightlogo.jpg); 
+		background-repeat: no-repeat;
+}
+h1 { margin-bottom: 20px; }
+h2 { color: #869DC7; 
+     font-family: arial, sans-serif;
+}
+ 
+#floatright { margin: 10px;
+              float: right;
+}
+
+footer { font-size:70%;
+         text-align: center;
+		 clear: right;
+         padding: 20px;
+		 background-color: #869DC7; 
+}
+</style> 
+</head>
+<body>
+<div id="wrapper">
+  <header>
+    <h1>Lighthouse Island Bistro</h1>
+  </header>
+  <nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="directions.html">Directions</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  </nav>
+  <main>
+      <img src="lighthouse.jpg" width="250" height="355" id="floatright" alt="Lighthouse Island">
+	<h2>Locally Roasted Free-Trade Coffee</h2>
+    <p>Indulge in the aroma of freshly ground roast coffee. Specialty drinks are available hot or cold.</p>
+    <h2>Specialty Pastries</h2>
+    <p>Enjoy a selection of our fresh-baked, organic pastries, including 
+  fresh-fruit muffins, scones, croissants, and cinnamon rolls.</p>
+  	<h2>Lunchtime is Anytime</h2>
+    <p>Savor delicious wraps and sandwiches on hearty, whole-grain breads with locally-grown salad, fruit, and vegetables. </p>
+    <h2>Panoramic View</h2>
+	<p>Take in some scenery! The top of our lighthouse offers a panoramic view of the countryside. Challenge your friends to climb our 100-stair tower.</p>
+    </main>
+    <footer>Copyright &copy; 2020
+    </footer>
+</div>
+</body>
+</html>
+
+Save the file as 'index.html' in a folder named 'hover'. Copy the 'lighthouse.jpg', 
+'lightlogo.jpg' into your 'hover' folder. Display the web page in a browser. Notice 
+that the navigation area needs to be configured.
+
+Review the code for this page, which uses a two-column layout. Examine the <nav> element
+ and modify the code to configure the navigation in an unordered list.
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="menu.html">Menu</a></li>
+<li><a href="directions.html">Directions</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+
+2.1 Let’s add CSS to the embedded styles to configure the unordered list elements 
+in the <nav> element. Eliminate the list marker, set the left margin to 0, and set the padding to 10 pixels.
+
+nav ul { 
+	list-style-type: none;
+	margin-left: 0;
+	padding: 10px; 
+}
+
+2.2 Next, configure basic interactivity with pseudo-classes.
+
+- Configure the anchor tags in the nav element to have 10 pixels of padding, use bold font, and display no underline.
+
+nav a {
+ 	text-decoration: none;
+	padding: 10px;
+	font-weight: bold; 
+}
+
+- Use pseudo-classes to configure anchor tags in the nav element to display white (#ffffff) text for unvisited hyperlinks, light-gray (#eaeaea) text for visited hyperlinks, and dark-blue (#000066) text when the mouse pointer hovers over hyperlinks:
+
+nav a:link { color: #ffffff; }
+nav a:visited { color: #eaeaea; }
+nav a:hover { color: #000066; }
+
+Save your page and test in a browser. Move your mouse pointer over the navigation area and notice the change in the text color.
+
+--
+
+

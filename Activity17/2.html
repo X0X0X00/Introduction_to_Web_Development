@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+</head>
+<body>
+    <h1>Form Validation Assignment</h1>
+    <p>Fill out the form below. The fields will be validated as you type.</p>
+
+    <!-- Form structure -->
+    <form id="userForm">
+        <!-- Name field -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <br>
+
+        <!-- Email field -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <br>
+
+        <!-- Submit button -->
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Area to display error messages -->
+    <p id="errorMessages" style="color: red;"></p>
+
+    <!-- Link to JavaScript file (add script tag -- see below) -->
+    <script src="formValidation.js"></script>
+
+</body>
+</html>

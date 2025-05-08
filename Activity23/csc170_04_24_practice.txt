@@ -1,0 +1,417 @@
+Note: Some of the activities may require some additional research on your side with respect to correct use of syntax, debugging, etc. Work on as many activities as possible. Show your progress for credit.
+
+--> Activity 1.1: This activity will help you understand the difference between synchronous and asynchronous execution in Node.js. 
+
+    Open your terminal.
+    Create a new directory for the project:
+
+mkdir sync-vs-async
+cd sync-vs-async
+
+Initialize a new Node.js project:
+
+        npm init -y
+
+    Create the Node.js file:
+        Inside the project directory, create a new file called sync-vs-async.js.
+
+    Write the code:
+
+// Synchronous function (blocking)
+function syncFunction() {
+  console.log("Synchronous function starts");
+
+  // Simulate a time-consuming task
+  for (let i = 0; i < 1000000000; i++) {
+    // Just a 'stupid' loop to simulate a time-consuming blocking task
+  }
+
+  console.log("Synchronous function ends");
+}
+
+// Asynchronous function (non-blocking)
+function asyncFunction() {
+  console.log("Asynchronous function starts");
+
+  // Simulate an asynchronous task (e.g., waiting for an I/O operation)
+  setTimeout(() => {
+    console.log("Asynchronous function ends (after 2 seconds)");
+  }, 2000);
+}
+
+// Start execution
+console.log("Start of the program");
+
+syncFunction(); // Call the synchronous function
+
+asyncFunction(); // Call the asynchronous function
+
+console.log("End of the program");
+
+    Explanation of Code:
+        syncFunction() is a synchronous function. It will block the program until it completes the loop (simulating a time-consuming task).
+        asyncFunction() is an asynchronous function. It uses setTimeout() to simulate a non-blocking operation, allowing the rest of the code to continue executing while it waits for the timeout.
+        The program logs the order in which different parts of the code execute.
+
+    Run the application:
+
+    In the terminal, run the file with Node.js:
+
+node sync-vs-async.js
+
+Expected Output: You should observe the following output:
+
+Start of the program
+Synchronous function starts
+Synchronous function ends
+Asynchronous function starts
+End of the program
+Asynchronous function ends (after 8 seconds)
+
+Key Note:
+
+    Synchronous behavior: The syncFunction() completely blocks the execution of subsequent code until it finishes. This is why "End of the program" doesn't appear until the synchronous function is done.
+    Asynchronous behavior: The asyncFunction() doesn't block the execution of other code. Even though it waits for 2 seconds, the program continues to execute, and "End of the program" prints immediately after calling asyncFunction(). The callback inside setTimeout() runs after the delay, and "Asynchronous function ends" is logged after 2 seconds.
+
+--> Activity 1.2: Setting Up a Basic Node.js HTTP Server
+
+Objective: Learn how to set up a basic HTTP server in Node.js using the built-in 'http' module.
+
+Steps:
+
+    Create a new directory:
+        Open the terminal and create a folder called basic-node-server.
+
+    mkdir basic-node-server
+    cd basic-node-server
+
+Initialize a new Node.js project:
+
+    Run 'npm init -y' to create a package.json file.
+
+Create a file named server.js:
+
+    Inside the project directory, create a file called server.js.
+    Add the following code to set up a basic HTTP server:
+
+// Import the built-in 'http' module from Node.js to create an HTTP server.
+const http = require('http');
+
+// Create the HTTP server by calling the 'createServer' function.
+// This function accepts a callback that has two parameters: 'req' (request) and 'res' (response).
+const server = http.createServer((req, res) => {
+  
+  // Set the HTTP status code to 200, which means "OK" (successful request).
+  res.statusCode = 200;
+
+  // Set the Content-Type header to 'text/plain' to specify that the response body will be plain text.
+  res.setHeader('Content-Type', 'text/plain');
+
+  // End the response and send the message 'Hello, Node.js!' to the client.
+  res.end('Hello, Node.js!');
+});
+
+// Define the port number where the server will listen for incoming requests.
+const PORT = 3000;
+
+// Make the server listen on the specified port (3000 in this case).
+// The callback function is called once the server starts listening, and it logs a message to the console.
+server.listen(PORT, () => {
+  // Log the server's address to the console so we know where it is running.
+  console.log(`Server running at http://localhost:${PORT}/`);
+});
+
+    Start the server:
+        In the terminal, run the command 'node server.js'.
+        Open a browser and go to http://localhost:3000 to see the message "Hello, Node.js!".
+
+--> Activity 2: Building a Simple RESTful API with Express
+
+Objective: Create a simple RESTful API using the Express.js framework.
+
+Steps:
+
+    Create a new directory:
+        In the terminal, create a folder named express-api.
+
+    mkdir express-api
+    cd express-api
+
+Initialize the project and install Express:
+
+    Run npm init -y to create a package.json.
+    Install Express by running:
+
+    npm install express
+
+Create a file named server.js:
+
+    Inside the project directory, create a file called server.js and add the following code:
+
+// Import the 'express' module, which is a web application framework for Node.js.
+const express = require('express');
+
+// Create an instance of an Express application.
+const app = express();
+
+// Define a constant for the port number where the server will listen for requests.
+const PORT = 3000;
+
+// Define a route for HTTP GET requests at the URL '/api/greet'.
+// When this route is hit, it responds with a JSON object containing a greeting message.
+app.get('/api/greet', (req, res) => {
+  // Send a JSON response with a message property set to 'Hello, World!'.
+  res.json({ message: 'Hello, World!' });
+});
+
+// Make the Express application listen on the specified port (3000).
+// The callback function is executed once the server successfully starts, logging a message.
+app.listen(PORT, () => {
+  // Log the server's address (including the port) to the console, indicating it's up and running.
+  console.log(`Server running at http://localhost:${PORT}`);
+});
+
+    Start the server:
+        In the terminal, run node server.js.
+        Open your browser to visit http://localhost:3000/api/greet and see the JSON response {"message": "Hello, World!"}.
+
+--> Activity 3: Implementing POST Requests with Express
+
+Objective: Add the ability to handle POST requests and parse JSON data.
+
+Steps:
+
+    Create a new directory:
+        Create a new directory called express-post-api and navigate into it.
+
+    mkdir express-post-api
+    cd express-post-api
+
+Initialize the project and install dependencies:
+
+    Run npm init -y to create a package.json.
+    Install Express and body-parser to parse JSON payloads:
+
+    npm install express body-parser
+
+Create a file named server.js:
+
+    Inside server.js, set up a POST route to accept JSON data:
+
+// Import the 'express' module, which is a web application framework for Node.js.
+const express = require('express');
+
+// Import the 'body-parser' module, which is used to parse incoming request bodies in a middleware.
+const bodyParser = require('body-parser');
+
+// Create an instance of an Express application.
+const app = express();
+
+// Define a constant for the port number where the server will listen for requests.
+const PORT = 3000;
+
+// Use the 'bodyParser.json()' middleware to automatically parse incoming JSON data in the request body.
+// This allows us to access the data sent by the client in the 'req.body' property.
+app.use(bodyParser.json());
+
+// Define a POST route handler for the '/api/user' endpoint.
+// This route is used to create a new user based on the data sent in the request body.
+app.post('/api/user', (req, res) => {
+  // Extract the 'user' object from the request body, which contains the data sent by the client.
+  const user = req.body;
+
+  // Respond with a status code of 201 (created), indicating that the user was successfully created.
+  // Also send a JSON response with a success message and the 'user' object that was received.
+  res.status(201).json({
+    message: 'User created successfully!',
+    user: user
+  });
+});
+
+// Make the Express application listen on the specified port (5000).
+// The callback function is executed once the server successfully starts, logging a message.
+app.listen(PORT, () => {
+  // Log the server’s address (including the port) to the console, indicating that the server is running.
+  console.log(`Server running at http://localhost:${PORT}`);
+});
+
+Start the server:
+
+    Run node server.js.
+
+    Use curl to send a POST request to http://localhost:5000/api/user with a JSON body like:
+
+        {
+          "name": "John",
+          "email": "travolta@gmail.com"
+        }
+For Mac/Linux type: curl -X POST http://localhost:5000/api/user -H "Content-Type: application/json" -d '{"name": "John", "email": "travolta@gmail.com"}'
+
+In Windows type the following:
+
+$headers = @{
+    "Content-Type" = "application/json"
+}
+
+Invoke-WebRequest -Uri http://localhost:5000/api/user -Method POST -Headers $headers -Body '{"name": "John", "email": "travolta@gmail.com"}'
+
+You should receive a response confirming the user creation.
+
+--> Activity 4: Handling Errors and Validations in Express
+
+Objective: Learn how to handle errors and add basic validation for API requests.
+
+Steps:
+
+    Create a new directory:
+        Create a new directory called express-error-handling and navigate into it.
+
+    mkdir express-error-handling
+    cd express-error-handling
+
+Initialize the project and install Express:
+
+    Run npm init -y and install Express:
+
+    npm install express
+
+Create a file named server.js:
+
+    Inside server.js, set up an API that includes validation and error handling:
+
+    const express = require('express');
+    const app = express();
+    const PORT = 3000;
+
+    app.use(express.json());
+
+    // Route with validation
+    app.post('/api/user', (req, res) => {
+      const { name, email } = req.body;
+
+      if (!name || !email) {
+        return res.status(400).json({ error: 'Name and email are required!' });
+      }
+
+      res.status(201).json({
+        message: 'User created successfully!',
+        user: { name, email }
+      });
+    });
+
+    // Global error handler
+    app.use((err, req, res, next) => {
+      console.error(err.stack);
+      res.status(500).send('Something went wrong!');
+    });
+
+    app.listen(PORT, () => {
+      console.log(`Server running at http://localhost:${PORT}`);
+    });
+
+    Test error handling:
+        Start the server and try making a POST request without the required fields name or email. You should receive a 400 error with the appropriate error message.
+        Test a valid POST request to ensure it works as expected.
+
+--> Activity 5: Implementing Middleware for Logging Requests
+
+Objective: Add a custom middleware to log all incoming requests.
+
+Steps:
+
+    Create a new directory:
+        Create a new directory express-logging and navigate into it.
+
+    mkdir express-logging
+    cd express-logging
+
+Initialize the project and install Express:
+
+    Run npm init -y and install Express:
+
+    npm install express
+
+Create a file named server.js:
+
+    Implement a simple middleware to log request details before handling them:
+
+    const express = require('express');
+    const app = express();
+    const PORT = 3000;
+
+    // Custom middleware for logging
+    app.use((req, res, next) => {
+      console.log(`${req.method} request made to ${req.url}`);
+      next(); // Proceed to the next middleware or route handler
+    });
+
+    app.get('/', (req, res) => {
+      res.send('Hello from Express!');
+    });
+
+    app.listen(PORT, () => {
+      console.log(`Server running at http://localhost:${PORT}`);
+    });
+
+    Start the server:
+        Run node server.js.
+        Open the browser and visit http://localhost:3000.
+        Check the terminal to see the log of incoming requests.
+
+--> Activity 6: Building a Simple Chat Application with WebSockets
+
+Objective: Build a simple real-time chat application using Socket.IO.
+
+Steps:
+
+    Create a new directory:
+        Create a new directory socket-chat and navigate into it.
+
+    mkdir socket-chat
+    cd socket-chat
+
+Initialize the project and install dependencies:
+
+    Run npm init -y and install Express and Socket.IO:
+
+    npm install express socket.io
+
+Create a server.js file:
+
+    Set up the basic Express server with Socket.IO for real-time messaging:
+
+    const express = require('express');
+    const http = require('http');
+    const socketIo = require('socket.io');
+
+    const app = express();
+    const server = http.createServer(app);
+    const io = socketIo(server);
+
+    // Serve static files
+    app.use(express.static('public'));
+
+    io.on('connection', (socket) => {
+      console.log('New user connected');
+
+      // Listen for incoming chat messages and broadcast them
+      socket.on('chat message', (msg) => {
+        io.emit('chat message', msg); // Send the message to all clients
+      });
+
+      socket.on('disconnect', () => {
+        console.log('User disconnected');
+      });
+    });
+
+    const PORT = 3000;
+    server.listen(PORT, () => {
+      console.log(`Server running at http://localhost:${PORT}`);
+    });
+
+    Create the front-end:
+        Inside a public folder, create an index.html file to set up the basic chat interface. Also, create a chat.js file to handle front-end logic (similar to the previous chat example, as outlined in the class activity earlier).
+
+    Test the chat application:
+        Run the server and open multiple browser windows to test the real-time communication.
+---

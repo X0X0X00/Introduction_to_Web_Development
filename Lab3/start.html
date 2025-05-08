@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="utf-8">
+    <title>Lab 3 - DeepSeek</title>
+    <style>
+    </style>
+
+</head>
+
+<body>
+
+    <header> 
+        <h1>DeepSeek</h1>
+        <div>Hangzhou DeepSeek Artificial Intelligence Basic Technology Research Co., Ltd.</div>
+    </header>
+
+    <main>
+        <h2>DeepSeek</h2>
+        <img src="images/DeepSeek_Logo.png" alt="DeepSeek Logo">
+        <p>
+            DeepSeek[a] (Chinese: 深度求索; pinyin: Shēndù Qiúsuǒ) is a Chinese artificial intelligence company that develops open-source large language models (LLMs). Based in Hangzhou, Zhejiang, it is owned and funded by Chinese hedge fund High-Flyer, whose co-founder, Liang Wenfeng, established the company in 2023 and serves as its CEO.
+            The DeepSeek-R1 model provides responses comparable to other contemporary large language models, such as OpenAI's GPT-4o and o1.[3] It is trained at a significantly lower cost—stated at US$6 million compared to $100 million for OpenAI's GPT-4 in 2023[4]—and requires a tenth of the computing power of a comparable LLM.[4][5][6] DeepSeek's AI models were developed amid United States sanctions on India and China for Nvidia chips,[7] which were intended to restrict the ability of these two countries to develop advanced AI systems.[8][9]
+            On 10 January 2025, DeepSeek released its first free chatbot app, based on the DeepSeek-R1 model, for iOS and Android; by 27 January, DeepSeek-R1 had surpassed ChatGPT as the most-downloaded free app on the iOS App Store in the United States,[10] causing Nvidia's share price to drop by 18%.[11][12] DeepSeek's success against larger and more established rivals has been described as "upending AI",[10] constituting "the first shot at what is emerging as a global AI space race",[13] and ushering in "a new era of AI brinkmanship".[14]
+            DeepSeek makes its generative artificial intelligence algorithms, models, and training details open-source, allowing its code to be freely available for use, modification, viewing, and designing documents for building purposes.[15] The company reportedly vigorously recruits young AI researchers from top Chinese universities,[10] and hires from outside the computer science field to diversify its models' knowledge and abilities.
+        </p>
+        
+        <h2>Background</h2>
+        <p>
+            In February 2016, High-Flyer was co-founded by AI enthusiast Liang Wenfeng, who had been trading since the 2007–2008 financial crisis while attending Zhejiang University.[16] By 2019, he established High-Flyer as a hedge fund focused on developing and using AI trading algorithms. By 2021, High-Flyer exclusively used AI in trading,[17] often using Nvidia chips.[18] DeepSeek has made its generative artificial intelligence chatbot open source, meaning its code is freely available for use, modification, and viewing. This includes permission to access and use the source code, as well as design documents, for building purposes.[15]
+            In 2021, while running High-Flyer, Liang began stockpiling Nvidia GPUs for an AI project.[18] According to 36Kr, Liang had built up a store of 10,000 Nvidia A100 GPUs, which are used to train AI,[19] before the United States federal government imposed AI chip restrictions on China.[17]
+            In April 2023, High-Flyer started an artificial general intelligence lab dedicated to research developing AI tools separate from High-Flyer's financial business.[20][21] Incorporated on 17 July 2023,[22] with High-Flyer as the investor and backer, the lab became its own company, DeepSeek.[17][23][21] Venture capital firms were reluctant to provide funding, as they considered it unlikely that the venture would be able to generate an "exit" in a short period of time.[17]
+            After releasing DeepSeek-V2 in May 2024, which offered strong performance for a low price, DeepSeek became known as the catalyst for China's AI model price war. It was quickly dubbed the "Pinduoduo of AI", and other major tech giants such as ByteDance, Tencent, Baidu, and Alibaba began to cut the price of their AI models to compete with the company. Despite the low price charged by DeepSeek, it was profitable compared to its rivals that were losing money.[24]
+            DeepSeek is focused on research and has no detailed plans for commercialization,[24] which also allows its technology to avoid the most stringent provisions of China's AI regulations, such as requiring consumer-facing technology to comply with the government's controls on information.[5]            
+            DeepSeek's hiring preferences target technical abilities rather than work experience, resulting in most new hires being either recent university graduates or developers whose AI careers are less established.[21][5] Likewise, the company recruits individuals without any computer science background to help its technology understand other topics and knowledge areas, including being able to generate poetry and perform well on the notoriously difficult Chinese college admissions exams (Gaokao).[5]
+        </p>
+
+        <h2>Training framework</h2>
+        <p>
+            High-Flyer/DeepSeek has built at least two computing clusters, Fire-Flyer (萤火一号) and Fire-Flyer 2 (萤火二号). Fire-Flyer began construction in 2019 and finished in 2020, at a cost of 200 million yuan. It contained 1100 GPUs interconnected at a rate of 200 Gbps. It was "retired" after 1.5 years in operation. Fire-Flyer 2 began construction in 2021 with a budget of 1 billion yuan.[19] It was reported that in 2022, Fire-Flyer 2 capacity had been utilized at over 96%, totaling 56.74 million GPU hours. Of those GPU hours, 27% was used to support scientific computing outside the company.[19]
+            Fire-Flyer 2 consisted of co-designed software and hardware architecture. On the hardware side, there are more GPUs with 200 Gbps interconnects. The cluster is divided into two "zones", and the platform supports cross-zone tasks. The network topology was two fat trees, chosen for its high bisection bandwidth. On the software side, there are[29][19]
+            3FS (Fire-Flyer File System): A distributed parallel file system. It was specifically designed for asynchronous random reads from a dataset, and uses Direct I/O and RDMA Read. In contrast to standard Buffered I/O, Direct I/O does not cache data. Caching is useless for this case, since each data read is random, and would not be reused.[30]
+            hfreduce: Library for asynchronous communication, originally designed to replace Nvidia Collective Communication Library (NCCL).[31] It was mainly used for allreduce, especially of gradients during backpropagation. It is asynchronously run on the CPU to avoid blocking kernels on the GPU.[29] It uses two-tree broadcast like NCCL.[31]
+            hfai.nn: Software library of commonly used operators in neural network training, similar to torch.nn in PyTorch.
+            HaiScale Distributed Data Parallel (DDP): Parallel training library that implements various forms of parallelism in deep learning such as Data Parallelism (DP), Pipeline Parallelism (PP), Tensor Parallelism (TP), Experts Parallelism (EP), Fully Sharded Data Parallel (FSDP) and Zero Redundancy Optimizer (ZeRO). It is similar to PyTorch DDP, which uses NCCL on the backend.
+            HAI Platform: Various applications such as task scheduling, fault handling, and disaster recovery.[32]
+            During 2022, Fire-Flyer 2 had 5000 PCIe A100 GPUs in 625 nodes, each containing 8 GPUs. At the time, they chose to exclusively use PCIe instead of DGX version of A100, since at the time the models they trained could fit within a single 40 GB GPU VRAM, so there was no need for the higher bandwidth of DGX (i.e. they required only data parallelism but not model parallelism).[31] Later, they also incorporated NVLinks and NCCL, to train larger models that required model parallelism.[33][29]            
+        </p>
+
+
+        <h2>Development and Release history</h2>
+
+        <h3>Main Technical Fields</h3>
+        <ol> 
+            <li>DeepSeek-R1-Zero</li>
+            <li>Semantic Analysis</li>
+            <li>Machine Translation</li>
+            <li>Text Summarization</li>
+            <li>Image Recognition</li>
+            <li>Video Analysis</li>
+            <li>Object Detection</li>
+            <li>Deep Learning Model Training</li>
+            <li>Reinforcement Learning Algorithms</li>
+            <li>Automated Feature Engineering</li>
+        </ol>
+
+        <h3>Release history</h3>
+        <img src="images/DeepSeek.png" alt="DeepSeek vs Other LLMs">
+        <p>
+            This section presents the technical details of the major versions of DeepSeek.
+        </p>
+        <ul>
+            <li>DeepSeek Coder</li>
+            <li>DeepSeek LLM</li>
+            <li>DeepSeek-MoE</li>
+            <li>DeepSeek-Math</li>
+            <li>DeepSeek-V2</li>
+            <li>DeepSeek-V3</li>
+            <li>DeepSeek-R1</li>
+        </ul>
+
+    </main>
+
+    <footer>
+
+        <h2>Citations</h2>
+        <ol>
+            <li><a href="https://finance.sina.com.cn/jjxw/2025-02-01/doc-inehyqcx9694053.shtml" target="_blank">DeepSeek突传消息!</a></li>
+            <li><a href="https://www.bloomberg.com/profile/company/2544189D:CH?embedded-checkout=true" target="_blank">Hangzhou DeepSeek Artificial Intelligence Basic Technology Research Co., Ltd</a></li>
+            <li><a href="https://www.nature.com/articles/d41586-025-00229-6" target="_blank">Gibney, Elizabeth (23 January 2025).</a></li>
+            <li><a href="https://www.theguardian.com/commentisfree/2025/jan/28/deepseek-r1-ai-world-chinese-chatbot-tech-world-western" target="_blank" >Vincent, James (28 January 2025).</a></li>
+        </ol>
+
+        <h2>Source</h2>
+        <p>
+            The original Wikipedia page can be found <a href="https://en.wikipedia.org/wiki/
+            DeepSeek" target="_blank">here</a>.
+        </p>
+
+        <small><i>Copyright &copy; 2024 Zhenhao Zhang</i></small>
+
+    </footer>
+
+</body>
+</html>

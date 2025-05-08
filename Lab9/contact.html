@@ -1,0 +1,65 @@
+
+<!-- 
+I chose the topic based on my previous lab, which focused on DeepSeek, an AI company.
+Creating the structure of the form was easy, but remembering all the attributes like id and for was tricky.
+I learned how to use fieldset and label associations properly.  
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 9 - HTML Forms</title>
+</head>
+<body>
+
+<h1>HTML Forms</h1>
+
+<form method="post" action="#">
+
+    <fieldset>
+        <legend>About You and AI</legend>
+
+        <label for="name">Full Name:</label><br>
+        <input type="text" id="name" name="fullName"><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="emailAddress"><br><br>
+
+        <label for="website">Favorite AI Website:</label><br>
+        <input type="url" id="website" name="favoriteSite"><br><br>
+
+        <p>Which AI topics are you most interested in?</p>
+        <input type="checkbox" id="llm" name="interestLLM" value="LLM">
+        <label for="llm">Large Language Models</label><br>
+        <input type="checkbox" id="cv" name="interestCV" value="ComputerVision">
+        <label for="cv">Computer Vision</label><br>
+        <input type="checkbox" id="rl" name="interestRL" value="ReinforcementLearning">
+        <label for="rl">Reinforcement Learning</label><br><br>
+
+        <p>Do you prefer open-source AI or proprietary AI?</p>
+        <input type="radio" id="open" name="aiType" value="OpenSource">
+        <label for="open">Open Source</label><br>
+        <input type="radio" id="proprietary" name="aiType" value="Proprietary">
+        <label for="proprietary">Proprietary</label><br>
+        <input type="radio" id="both" name="aiType" value="Both">
+        <label for="both">Both</label><br><br>
+
+        <label for="feedback">Tell us what you think about DeepSeek:</label><br>
+        <textarea id="feedback" name="userFeedback" rows="5" cols="40"></textarea><br><br>
+    </fieldset>
+
+    <!-- <input type="hidden" name="studentID" value="YOUR_STUDENT_ID_HERE"> -->
+    <input type="hidden" name="studentID" value="zzh133">
+
+    <!-- <input type="hidden" name="favoriteFruit" value="YOUR_FAVORITE_FRUIT_HERE"> -->
+    <input type="hidden" name="favoriteFruit" value="Mango">
+
+    <input type="submit" value="Send Now">
+
+</form>
+
+</body>
+</html>

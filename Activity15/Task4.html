@@ -1,0 +1,27 @@
+<?php
+function findHighestScore($grades) {
+    if (empty($grades)) {
+        return null;
+    }
+    $highest = $grades[0];
+    foreach ($grades as $score) {
+        if ($score > $highest) {
+            $highest = $score;
+        }
+    }
+    return $highest;
+}
+
+function findLowestScore($grades) {
+    if (empty($grades)) {
+        return null;
+    }
+    $lowest = $grades[0];
+    foreach ($grades as $score) {
+        if ($score < $lowest) {
+            $lowest = $score;
+        }
+    }
+    return $lowest;
+}
+

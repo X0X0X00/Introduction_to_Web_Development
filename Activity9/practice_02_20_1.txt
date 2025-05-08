@@ -1,0 +1,261 @@
+Activity 1
+
+You'll configure an image gallery with flexbox properties in this activity. 
+Download and unzip the BB file 'birds.zip'. Create a new folder called 'flex'. 
+Copy the starter1.html file into your flex folder. Copy the following files 
+into your 'flex' folder: bird1.jpg, bird2.jpg, bird3.jpg, bird4.jpg, bird5.jpg, 
+and bird6.jpg.
+
+Launch a text editor and type the following code:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Flexbox Gallery</title>
+	<meta charset="utf-8">
+	<style>
+	* { box-sizing: border-box; }
+	body { background-color: #FEFEFE; }
+	header { text-align: center; }
+	</style> 
+</head>
+<body>
+  <header>
+    <h1>Flexbox Gallery</h1>
+  </header>
+  <main> 
+	 
+  </main>
+</body>
+</html>
+
+Step 1: Add the following HTML below the opening <main> tag to create a 
+<div> assigned to the id "gallery" that contains six images.
+
+ 	 <div id="gallery">
+	   <img src="bird1.jpg" width="200" height="150" alt="Red Crested Cardinal">
+	   <img src="bird2.jpg" width="200" height="150" alt="Rose-Breasted Grosbeak">
+	   <img src="bird3.jpg" width="200" height="150" alt="Gyrfalcon">
+	   <img src="bird4.jpg" width="200" height="150" alt="Rock Wren">
+	   <img src="bird5.jpg" width="200" height="150" alt="Coopers Hawk">
+	   <img src="bird6.jpg" width="200" height="150" alt="Immature Bald Eagle">
+	 </div>
+
+The div is the flex container. Each <img> element is a flex item in the flex 
+container. Save the file with the name 'index.html'.
+
+Step 2: Edit the 'index.html' file and configure CSS between the <style> tags 
+in the <head> section. Configure an id named 'gallery'. Apply styles as follows:
+
+#gallery { 
+	display: flex; 
+           	flex-direction: row;
+	flex-wrap: wrap; 
+	justify-content: space-around; 
+}
+
+Save the file and test it in a browser. Observe that while the browser 
+configured empty space between the flex items on each row (the main axis), 
+there is no empty space in the vertical (cross axis) area between each row element.
+
+Step 3: Next, you'll configure the flex items to have a margin, which will 
+force some empty space between the rows. Recall that a flex item is a child 
+element of the flex container. In our page, each <img> element is a flex item. 
+Edit the 'index.html' file and code CSS above the closing style tag for the img 
+selector that sets a 1em margin and a box-shadow.
+
+img { 
+	margin: 1em;
+      	box-shadow: 10px 10px 10px #777777;
+} 
+
+Save the file and test in a browser. Notice that the display is flexible and responsive to browser size, although the flex items are not necessarily displayed in a grid – that’s what CSS Grid Layout can do.
+
+--
+
+Activity 2
+
+We'll explore two more ways to configure the image gallery in this activity. 
+Create a new folder called 'grid'. Copy all the bird images into your new folder.
+
+Launch a text editor and type the following code:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Grid Gallery</title>
+	<meta charset="utf-8">
+	<style>
+		* { box-sizing: border-box; }
+		body { background-color: #FEFEFE; }
+		header { text-align: center; }		 
+	</style> 
+</head>
+<body>
+  <header>
+    <h1>Grid Gallery</h1>
+  </header>
+  <main> 
+ 	 <div id="gallery">
+	   <img src="bird1.jpg" width="200" height="150" alt="Red Crested Cardinal">
+	   <img src="bird2.jpg" width="200" height="150" alt="Rose-Breasted Grosbeak">
+	   <img src="bird3.jpg" width="200" height="150" alt="Gyrfalcon">
+	   <img src="bird4.jpg" width="200" height="150" alt="Rock Wren"> 
+	   <img src="bird5.jpg" width="200" height="150" alt="Coopers Hawk">
+	   <img src="bird6.jpg" width="200" height="150" alt="Immature Bald Eagle"> 
+	 </div>
+  </main>
+</body>
+</html>
+
+Review the HTML and note that it contains a div assigned to the 'gallery' 
+id with six <img> elements for your image gallery. The div is the grid container. 
+Each <img> element is a grid item since it is a child element of the div. Save the 
+file with the name 'index.html'.
+
+Step 1: Edit the 'index.html' file and configure CSS between the <style> tags in 
+the <head> section. Configure an 'id' named 'gallery'. Set the 'display' property 
+to 'grid'. Divide the available browser space into three columns of 200 pixels each. 
+To cause the browser to automatically generate rows as needed, set the  property to 
+'auto'. Configure the base size of the gutters between row and column tracks by setting
+the gap property. The CSS code follows:
+
+	#gallery {   	display: grid; 
+             		grid-template-columns: repeat(3, 200px);
+			grid-template-rows: auto;	
+             		gap: 2em;			 
+	}
+
+Save the file and test it in a browser. 
+
+Activity 3
+
+Create a new folder called 'grid2'. Save 'light2.jpg' into the new folder.
+Type the following code in your code editor:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Lighthouse Island Bistro</title>
+	<meta charset="utf-8">
+	<style>
+		* { box-sizing: border-box; margin: 0; }
+		body {font-family: Verdana, Arial, sans-serif; }
+		nav { float: left; }
+		nav ul { list-style-type: none;
+				 padding: 1em; }
+		nav a { text-decoration: none;
+				padding: 1em;
+				font-weight: bold;
+		}
+		header { background-color: #869dc7;
+				color: #00005D; 
+				background-image: url.(light2.jpg); 
+				padding: 1em 0 1em 190px;
+				font-size: 130%;
+				min-width: 600px;
+				background-repeat: no-repeat;
+				font-family: "Times New Roman", serif;
+		}
+		main { padding: 1em; }
+		h2 { color: #869dc7; 
+			 font-family: arial, sans-serif;
+		}
+		figure { text-align: center; }
+		figcaption { font-style: italic; text-align: center;}
+		footer { background-color: #869dc7;
+				 font-size:70%;
+				 text-align: center;
+				 padding: 2em;
+		}
+	</style> 
+</head>
+<body>
+  <div id="wrapper">
+  <header>
+  <h1>Lighthouse Island Bistro</h1>
+  </header>
+    <nav>
+	<ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="rooms.html">Menu</a></li>
+      <li><a href="directions.html">Directions</a></li>
+      <li><a href="contact.html">Contact</a></li>
+	 </ul>
+    </nav>
+  <main> 
+     <h2>Locally Roasted Free-Trade Coffee</h2>
+    <p>Indulge in the aroma of freshly ground roast coffee. Specialty drinks are available hot or cold.</p>
+    <h2>Specialty Pastries</h2>
+    <p>Enjoy a selection of our fresh-baked, organic pastries, including 
+  fresh-fruit muffins, scones, croissants, and cinnamon rolls.</p>
+  	<h2>Lunchtime is Anytime</h2>
+    <p>Savor delicious wraps and sandwiches on hearty, whole-grain breads with locally-grown salad, fruit, and vegetables. </p>
+    <h2>Panoramic View</h2>
+	<p>Take in some scenery! The top of our lighthouse offers a panoramic view of the countryside. Challenge your friends to climb our 100-stair tower.</p>
+ </main>
+     <footer>Copyright &copy; 2020     </footer> 
+  </div>
+</body>
+</html>
+
+
+Save the file as 'index.html' and open it in a browser to see how the web page is 
+displayed.
+
+Step 1: You will edit the CSS in the <head> section. Our grid layout will follow the 
+two-column grid wireframe of the figure below. 
+
+Use the horizontal grid lines to indicate the rows. Use the vertical grid lines to 
+indicate the columns. Add style rules in the head section to configure an id named 
+'wrapper' as a grid container with a two-column, three-row grid layout as illustrated 
+below. 
+
++-------------------+-------------------+
+|       Row 1       |       Row 1       |
+|    (100px height) |    (100px height) |
+|                   |                   |
++-------------------+-------------------+
+|       Row 2       |       Row 2       |
+|    (auto height)  |    (auto height)  |
+|                   |                   |
++-------------------+-------------------+
+|       Row 3       |       Row 3       |
+|    (50px height)  |    (50px height)  |
+|                   |                   |
++-------------------+-------------------+
+
+The CSS follows:
+
+	#wrapper { 	display: grid;
+              		grid-template-columns: 150px 1fr;
+              		grid-template-rows: 100px auto 50px; 
+	}
+
+Next, use the wireframe of the figure as a guide to configure the HTML element 
+selectors
+
++-------------------+-------------------+
+|       Header                          |
+|    (100px height)                     |
+|                                       |
++---------+---------+-------------------+
+|   Nav   |                 Main        |
+| 150px   |                1fr width    |
+|  width  |                auto height  |
++---------+---------+-------------------+
+|       Footer                          |
+|    (50px height)                      |
+|                                       |
++-------------------+-------------------+
+
+Step 2: Complete the following CSS in order to get the wireframe illustrated in the above schema:
+
+	header { grid-row: ... / ... ; grid-column: ... / ...; }
+	nav    { grid-row: ... / ...; grid-column: ... / ...; }
+	main   { grid-row: ... / ...; grid-column: ... / ...; }
+	footer { grid-row: ... / ...; grid-column: ... / ...; }
+
+Save your file. Launch a browser and test your page.
+
+--
